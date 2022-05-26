@@ -1,0 +1,282 @@
+.log
+{
+    width: 50%;
+}
+.login
+{
+    width: 100%;
+    display: flex;
+    background-color: #000;
+}
+.log-one
+{
+    background-color: #000;
+}
+.orange
+{
+    color: #F26339;
+    
+}
+.log-con {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    margin-block: 150px;
+    margin-inline: 83px;
+}
+.log-con p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #5B5C5F;
+    margin: 0px;
+    margin-top: 15px;
+}
+.log-con h1 {
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0px;
+}
+.log-con img {
+    margin-top: 50px;
+    padding-bottom: 25px;
+}
+.corner-div
+{
+    width: 83.32px;
+height: 72.35px;
+border: 5px solid #F26339;
+position: absolute;
+}
+.corner-one {
+    border-right: 0px;
+    border-bottom: 0px;
+}
+.corner-two {
+    border-left: 0px;
+    border-bottom: 0px;
+    right: 0;
+}
+.corner-three {
+    border-right: 0px;
+    border-top: 0px;
+    bottom: 0;
+
+}
+.corner-four {
+    bottom: 0;
+    right: 0;
+    border-top: 0;
+    border-left: 0;
+}
+.log-con h1.orange {
+    padding-top: 25px;
+}
+.log-two {
+    background: url('../../Assets/images/orange_bckgrnd.png') no-repeat;
+    color: #fff;
+    text-align: center;
+    background-size: cover;
+}
+.black-clr
+{
+    color: #000;
+}
+.business-card {
+    font-weight: 500;
+    font-size: 24px;
+  
+}
+.login-card {
+    text-align: left;
+    margin-inline: auto;
+    width: 350px;
+    margin-top: 108px;
+}
+.login-card h3 {
+    margin-bottom: 41px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.login-card h3::after {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background: #000;
+    content: '';
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+}
+label.email-para {
+    font-size: 16px;
+    color: #FBCBBD;
+    margin-bottom: 16px;
+}
+.email-inp {
+    background: #FE7F5A !important;
+    border: 1px solid #FFFFFF !important;
+    box-shadow: 0px 8px 20px rgb(0 0 0 / 5%) !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+}
+.login-btn
+{
+    background: #090909 !important;
+    box-shadow: 0px 9px 20px 2px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 5px !important;
+    font-weight: 700 !important;
+font-size: 16px !important;
+color: #fff !important;
+width: 100% !important;
+}
+.forgot-div
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.remeber-label
+{
+    margin: 25px 0px 17px 0px;
+}
+.forgot-link {
+    font-size: 16px;
+    color: #383331;
+    font-weight: 500;
+    text-decoration: none;
+}
+.email-password
+{
+    background: url('../../Assets/images/eye-icon.png') 82% no-repeat !important;
+    position: absolute;
+    width: 50px;
+    height: 29px;
+    top: 5px;
+    right: 14px;
+   
+}
+.email-head {
+    position: relative;
+}
+.error-message
+{
+    margin-bottom: 10px;
+    color: #77df77;
+    font-weight: 500;
+    font-size: 14px;
+}
+.email-error-msg, .password-error-msg {
+    /* margin: 2px 0px 2px 7px; */
+    font-size: 13px;
+    color: #a50614;
+    margin-bottom: 0px;
+}
+.email-inp {
+    margin-bottom: 16px;
+    padding-left: 47px !important;
+}
+.business-card-header
+{
+    margin-top: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.business-card-header img {
+    margin-right: 18px;
+}
+.email-inp-one
+{
+background: url('../../Assets/images/maillogo.png') 5% no-repeat ,#FE7F5A !important;
+}
+.email-inp-two
+{
+    background: url('../../Assets/images/pswdlogo.png') 5% no-repeat,#FE7F5A !important;
+}
+
+
+/* ***************custom check box start**************************** */
+/* Customize the label (the container) */
+.check-box-main {
+    display: block;
+    position: relative;
+    padding-left: 37px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    color: #FFD1C4;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .check-box-main input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background: #FA825F;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .check-box-main:hover input ~ .checkmark {
+    background: #f07a56;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .check-box-main input:checked ~ .checkmark {
+    color: #090909;
+    background: #FA825F;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .check-box-main input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .check-box-main .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+/* ***************custom check box end **************************** */
+
+
+
+
+/* **************************** forgot password :start *****************/
+.forgotpassword-class {
+    margin-top: 30px;
+    text-align: center;
+    color: #484848;
+    font-size: 16px;
+    font-weight: 400;
+}
+.forgotpassword-submit {
+    margin-top: 30px;
+}
+/* **************************** forgot password :end *****************/

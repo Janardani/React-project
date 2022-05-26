@@ -1,0 +1,56 @@
+{
+  "User": [
+    {
+      "email": "janardani@gmail.com",
+      "password": "Jana@1234",
+      "id": 1
+    },
+    {
+      "email": "abinayasri@gmail.com",
+      "password": "abinaya2020",
+      "id": 2
+    },
+    {
+      "email": "sujadevi@gmail.com",
+      "password": "suja@123",
+      "id": 3
+    }
+  ],
+  "managecontact" : [
+    {
+      "id":"01",
+      "name":"John Adam",
+      "jobtitle":"Job title1200",
+      "number":"+1 651-319-4767",
+      "emailid":"johnadam@gmail.com"
+    },
+    {
+      "id":"02",
+      "name":"Janardani",
+      "jobtitle":"Job title1200",
+      "number":"+1 651-319-4767",
+      "emailid":"johnadam@gmail.com"
+    },
+    {
+      "id":"03",
+      "name":"Abinaya sree",
+      "jobtitle":"Job title1200",
+      "number":"+1 651-319-4767",
+      "emailid":"johnadam@gmail.com"
+    },
+    {
+      "id":"04",
+      "name":"Jhon",
+      "jobtitle":"Job title1200",
+      "number":"+1 651-319-4767",
+      "emailid":"johnadam@gmail.com"
+    },
+    {
+      "id":"05",
+      "name":"Maddy",
+      "jobtitle":"Job title1200",
+      "number":"+1 651-319-4767",
+      "emailid":"johnadam@gmail.com"
+    }
+  ]
+}

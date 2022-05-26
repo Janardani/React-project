@@ -1,0 +1,249 @@
+.dash-header
+{
+    background: #F26339;
+    padding: 13px 0px 12px 30px;
+}
+.dash-head-logo {
+    width: 36px;
+    height: 36px;
+    margin-right: 13px;
+}
+.dash-head-logo img{
+    width: 100%;
+}
+.dash-header .business-card
+{
+    color: #fff;
+}
+.dash-header p.dash-para {
+    color: #fff;
+    margin: 0px 0px 0px 15px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.dash-header .bell {
+    width: 24px;
+    height: 24px;
+    padding-right: 1px;
+}
+.dash-header .bell img{
+    width: 100%;
+}
+.dash-header .man-img {
+    width: 54px;
+    height: 54px;
+    margin: 0px 10px 0px 30px;
+}
+.dash-header .man-img img{
+    width: 100%;
+    border-radius: 50%;
+}
+.dash-header p.christ-para {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.dash-header .christ-down-arrow {
+    margin-left: 6px;
+    width: 12px;
+}
+.christ-down-arrow img {
+    width: 100%;
+}
+.dash-header p.christ-super {
+    font-weight: 400;
+    font-size: 14px;
+    color: #1E1F22;
+}
+.dash-header .man-head
+{
+    margin-right: 30px;
+}
+.dash-header .bell-main {
+    padding-right: 29px;
+    border-right: 1px solid #D04F2A;
+    border-radius: 0.5px;
+}
+.dash-board-container {
+    padding: 30px;
+    /* background-color: #000; */
+}
+.dash-left-main
+{
+    width: 375px;
+    background: #1E1F22;
+    padding: 33px 0px 0px 30px;
+    height: 100vh;
+    transition: 0.8s;
+    position: absolute;
+}
+.dash-right-main
+{
+    width: 78%;
+    /* background-color: #000; */
+    padding: 30px;
+    height: 100vh;
+    margin-left: 365px;
+    transition: 0.8s;
+}
+.dash-board-head-main
+{
+    width: 100%;
+    display: flex;
+    color: #fff;
+    background-color: #000;
+}
+
+
+/* ******************dahsboard left css start************************** */
+
+.speed-icon {
+    width: 22px;
+    height: 22px;
+    /* margin-right: 17px; */
+    margin-bottom: 30px;
+}
+.speed-head {
+    display: flex;
+    color: #6B6B6B;
+}
+.speed-icon img {
+    width: 100%;
+}
+.speed-head.active .speed-para {
+    border-right: 2px solid #fff;
+    width: 88%;
+    color: #fff;
+}
+.speed-para {
+    height: 45px;
+}
+#clickactive {
+    transform: translate(0);
+}
+#clickinactive {
+    transform: translate(-100%);
+}
+
+/* ******************dahsboard left css end ************************** */
+/* **************************dashboard right ************************/
+#rightactive
+{
+    margin-left: 365px;
+}
+#rightinactive {
+    width: 100%;
+    margin: 0;
+}
+.main-chart {
+    width: 49%;
+}
+.chart-little-img {
+    width: 40px;
+    height: 36px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.chart-little-img-one
+{
+    background: #E37E06;
+}
+.chart-little-img-two
+{
+    background: #189946;
+}
+.chr-img-div {
+    width: 18px;
+    height: 25px;
+    margin-top: 5px;
+    margin-inline: auto;
+  
+}
+.chr-img-div img {
+    width: 100%;
+}
+.chart-para {
+    color: #A7A7A7;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.chart-num {
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    padding-left: 30px;
+}
+.chart-num::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 24px;
+    background: #343434;
+    left: 0;
+    top: 7px;
+}
+.chart-one {
+    background: #1E1F22;
+    border-radius: 5px;
+    padding: 12px 10px;
+}
+.chart-two {
+    background: #1E1F22;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 30px;
+    height: calc(100% - 129px);
+}
+.view-port-btn {
+    color: #DCD0D0 !important;
+    border: 1px solid #323232 !important;
+    border-radius: 6px !important;
+}
+.search-inp {
+    border: 1px solid #2F3032;
+    border-radius: 5px;
+    background: #1e1f22;
+    padding-left: 25px;
+}
+.search-para {
+    margin-right: 25px;
+    font-weight: 400;
+    font-size: 16px;
+    width: 10%;
+}
+.search-div .form-group {
+    width: 90%;
+}
+.search-inp {
+    border: 1px solid #2F3032 !important;
+    border-radius: 5px !important;
+    background: #1e1f22 !important;
+    padding-left: 25px !important;
+  
+}
+.num-of-contact>:not(:first-child) {
+    border-top: 0;
+}
+.table.num-of-contact td, .table.num-of-contact tr {
+    border: 0;
+}
+.num-of-contact {
+    color: #A7A7A7 !important;
+}
+.num-of-contact>:not(:first-child) {
+    border-top: 0 !important;
+}
+.table.num-of-contact tbody tr td:nth-child(2) {
+    color: #DB9B88;
+    text-decoration: underline;
+}
+.num-of-contact th {
+    color: #fff;
+    border-radius: 5px;
+    background: #0F0F0F;
+    padding-block: 13px !important;
+}
+/* **************************dashboard right end************************/
