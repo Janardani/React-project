@@ -73,19 +73,18 @@
 {
     width: 375px;
     background: #1E1F22;
-    padding: 33px 0px 0px 30px;
-    height: 100vh;
+    padding: 33px 0px 0px 0px;
     transition: 0.8s;
     position: absolute;
+    height: calc(100vh - 86px);
 }
 .dash-right-main
 {
     width: 78%;
-    /* background-color: #000; */
     padding: 30px;
-    height: 100vh;
     margin-left: 365px;
     transition: 0.8s;
+    overflow-y: scroll;
 }
 .dash-board-head-main
 {
@@ -101,19 +100,24 @@
 .speed-icon {
     width: 22px;
     height: 22px;
-    /* margin-right: 17px; */
-    margin-bottom: 30px;
+    padding: 0px 17px 0px 30px;
 }
 .speed-head {
-    display: flex;
     color: #6B6B6B;
+    margin-bottom: 26px;
+    height: 45px;
+}
+.speed-head.active svg path, .speed-head:hover svg path {
+    fill: #fff !important;
 }
 .speed-icon img {
     width: 100%;
 }
-.speed-head.active .speed-para {
+.speed-head.active {
     border-right: 2px solid #fff;
-    width: 88%;
+    color: #fff;
+}
+.speed-head:hover {
     color: #fff;
 }
 .speed-para {

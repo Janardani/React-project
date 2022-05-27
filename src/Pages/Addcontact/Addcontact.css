@@ -1,0 +1,53 @@
+.add-contact
+{
+background: #1E1F22;
+border-radius: 5px;
+padding-inline: 30px;
+}
+.add-edit
+{
+    color: #A7A7A7;
+    font-weight: 500;
+font-size: 16px;
+}
+.add-field
+{
+background: #F39C12 !important;
+border: 1px solid #F39C12 !important;
+border-radius: 5px !important;
+color: #fff !important;
+font-weight: 500 !important;
+}
+.add-contact-add
+{
+    padding-block: 20px;
+    border-bottom: 1px solid #2D2E31;
+}
+.info-input label {
+    color: #939393;
+    font-size: 16px;
+    margin-bottom: 16px;
+    margin-left: 15px;
+}
+.info-input input[type="text"] {
+    background: #161616;
+    border-radius: 5px;
+    padding: 13px 20px;
+    color: #fff;
+    border: 1px solid #4B4B4B;
+    margin-bottom: 30px;
+}
+.info-input input[type="text"]::placeholder { 
+    color: #858585;
+    font-size: 16px;
+  }
+  
+  .info-input input[type="text"]:-ms-input-placeholder {
+    color: #858585;
+    font-size: 16px;
+  }
+  
+  .info-input input[type="text"]::-ms-input-placeholder { 
+    color: #858585;
+    font-size: 16px;
+  }

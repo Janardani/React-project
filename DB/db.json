@@ -19,38 +19,61 @@
   "managecontact" : [
     {
       "id":"01",
-      "name":"John Adam",
-      "jobtitle":"Job title1200",
-      "number":"+1 651-319-4767",
-      "emailid":"johnadam@gmail.com"
+      "Name":"John Adam",
+      "JobTitle":"Job title1200",
+      "MobileNumber":"+1 651-319-4767",
+      "Emailid":"johnadam@gmail.com",
+      "label":["Name","Job Title","Mobile Number","Email id","Organization","Website","Facebook","Instagram","Linkedin","Secondary  Phone Number"]
     },
     {
       "id":"02",
-      "name":"Janardani",
-      "jobtitle":"Job title1200",
-      "number":"+1 651-319-4767",
-      "emailid":"johnadam@gmail.com"
+      "Name":"Janardani",
+      "JobTitle":"Job title1200",
+      "MobileNumber":"+1 651-319-4767",
+      "Emailid":"johnadam@gmail.com"
     },
     {
       "id":"03",
-      "name":"Abinaya sree",
-      "jobtitle":"Job title1200",
-      "number":"+1 651-319-4767",
-      "emailid":"johnadam@gmail.com"
+      "Name":"Abinaya sree",
+      "JobTitle":"Job title1200",
+      "MobileNumber":"+1 651-319-4767",
+      "Emailid":"johnadam@gmail.com"
     },
     {
       "id":"04",
-      "name":"Jhon",
-      "jobtitle":"Job title1200",
-      "number":"+1 651-319-4767",
-      "emailid":"johnadam@gmail.com"
+      "Name":"Jhon",
+      "JobTitle":"Job title1200",
+      "MobileNumber":"+1 651-319-4767",
+      "Emailid":"johnadam@gmail.com"
     },
     {
       "id":"05",
-      "name":"Maddy",
-      "jobtitle":"Job title1200",
-      "number":"+1 651-319-4767",
-      "emailid":"johnadam@gmail.com"
+      "Name":"Maddy",
+      "JobTitle":"Job title1200",
+      "MobileNumber":"+1 651-319-4767",
+      "Emailid":"johnadam@gmail.com"
+    }
+  ],
+  "reactDonutChartdata" : [
+    {
+      "label": "Washington",
+      "value":78
+    },
+    {
+      "label": "Los Angeles",
+      "value": 75
+    },
+    {
+      "label": "North Coast",
+      "value":34
+    },
+    {
+      "label": "Great Basin",
+      "value": 786
+    },
+    {
+      "label": "Central California",
+      "value": 786
     }
   ]
 }

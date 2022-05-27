@@ -1,56 +1,26 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import DonutChart from "react-donut-chart";
 import lock from '../Assets/images/lock.png';
-import contact from '../Assets/images/contact.png'
+import contact from '../Assets/images/contact.png';
+import axios from 'axios';
 
 function Dashright() {
-  const reactDonutChartdata = [
-    {
-      label: "Washington  41.5%",
-      value: 10,
-      color: "#CA9C31",
-    },
-    {
-      label: "Los Angeles 26.1%",
-      value: 26.1,
-      color: "#854095"
-    },
-    {
-      label: "North Coast  14%",
-      value: 14,
-      color: "#E37E06"
-    },
-    {
-      label: "Great Basin  9.1%",
-      value: 9.1,
-      color: "#1170CB"
-    },
-    {
-      label: "Central California  41.5%",
-      value: 41.5,
-      color: "#D9B648"
-    }
-  ];
+  const [userdata, setuserdata] = useState([{label:"",value:""}]);
+    useEffect(() => {
+        const result = async () =>{axios.get("http://localhost:8001/reactDonutChartdata").then(res => setuserdata(res.data));}
+        result();
+      }, []);
+      console.log(userdata)
   const reactDonutChartBackgroundColor = [
     "#CA9C31",
     "#854095",
     "#E37E06",
     "#1170CB",
     "#D9B648"
-
   ];
   const reactDonutChartInnerRadius = 0.5;
-  // const reactDonutChartSelectedOffset = 0.04;
-  // const reactDonutChartHandleClick = (item, toggled) => {
-  //   if (toggled) {
-  //     console.log(item);
-  //   }
-  // };
+  const reactDonutChartSelectedOffset = 0.04;
   let reactDonutChartStrokeColor = "#000";
-  // const reactDonutChartOnMouseEnter = (item) => {
-  //   let color = reactDonutChartdata.find((q) => q.label === item.label).color;
-  //   reactDonutChartStrokeColor = color;
-  // };
   
   return (
     <div className='d-flex justify-content-between'>
@@ -69,13 +39,11 @@ function Dashright() {
           <DonutChart
         width={500}
         height={350}
-        // onMouseEnter={(item) => reactDonutChartOnMouseEnter(item)}
         strokeColor={reactDonutChartStrokeColor}
-        data={reactDonutChartdata}
+        data={userdata}
         colors={reactDonutChartBackgroundColor}
         innerRadius={reactDonutChartInnerRadius}
-        // selectedOffset={reactDonutChartSelectedOffset}
-        // onClick={(item, toggled) => reactDonutChartHandleClick(item, toggled)}
+        selectedOffset={reactDonutChartSelectedOffset}
       />
           </div>
     </div>
@@ -93,15 +61,17 @@ function Dashright() {
           </div>
           <div className='search-div d-flex align-items-baseline'>
             <p className='search-para'>Search</p>
-            <div class="form-group">
-    <input type="email" class="form-control search-inp"  aria-describedby="emailHelp" placeholder="Search By User Name..." />
+            <div className="form-group">
+    <input type="email" className="form-control search-inp"  aria-describedby="emailHelp" placeholder="Search By User Name..." />
   </div>
           </div>
           <table className='table num-of-contact'>
-            <thead  class="thead-dark">
+            <thead  className="thead-dark">
+              <tr>
               <th>#</th>
               <th>User Name</th>
               <th>Saved Contacts</th>
+              </tr>
             </thead>
             <tbody>
              <tr>
