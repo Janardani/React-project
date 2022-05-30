@@ -7,7 +7,7 @@
     },
     {
       "email": "abinayasri@gmail.com",
-      "password": "abinaya2020",
+      "password": "Abinaya@2020",
       "id": 2
     },
     {
@@ -16,48 +16,103 @@
       "id": 3
     }
   ],
-  "managecontact" : [
+  "managecontact": [
     {
-      "id":"01",
-      "Name":"John Adam",
-      "JobTitle":"Job title1200",
-      "MobileNumber":"+1 651-319-4767",
-      "Emailid":"johnadam@gmail.com",
-      "label":["Name","Job Title","Mobile Number","Email id","Organization","Website","Facebook","Instagram","Linkedin","Secondary  Phone Number"]
+      "Name": "K. janardani ",
+      "JobTitle": "React",
+      "MobileNumber": "0123456",
+      "Emailid": "janardani@gmail.com",
+      "org": "org",
+      "website": "website",
+      "fb": "facebook",
+      "insta": "insta",
+      "linkedin": "linkedin",
+      "secnum": "7894561230",
+      "id": 1
     },
     {
-      "id":"02",
-      "Name":"Janardani",
-      "JobTitle":"Job title1200",
-      "MobileNumber":"+1 651-319-4767",
-      "Emailid":"johnadam@gmail.com"
+      "Name": "Abinayasri",
+      "JobTitle": "React",
+      "MobileNumber": "0123456",
+      "Emailid": "janardani@gmail.com",
+      "org": "org",
+      "website": "website",
+      "fb": "facebook",
+      "insta": "insta",
+      "linkedin": "linkedin",
+      "secnum": "7894561230",
+      "id": 2
     },
     {
-      "id":"03",
-      "Name":"Abinaya sree",
-      "JobTitle":"Job title1200",
-      "MobileNumber":"+1 651-319-4767",
-      "Emailid":"johnadam@gmail.com"
+      "Name": "Sujadevi",
+      "JobTitle": "React",
+      "MobileNumber": "0123456",
+      "Emailid": "janardani@gmail.com",
+      "org": "org",
+      "website": "website",
+      "fb": "facebook",
+      "insta": "insta",
+      "linkedin": "linkedin",
+      "secnum": "7894561230",
+      "id": 3
     },
     {
-      "id":"04",
-      "Name":"Jhon",
-      "JobTitle":"Job title1200",
-      "MobileNumber":"+1 651-319-4767",
-      "Emailid":"johnadam@gmail.com"
+      "Name": "mani",
+      "JobTitle": "React",
+      "MobileNumber": "0123456",
+      "Emailid": "janardani@gmail.com",
+      "org": "org",
+      "website": "website",
+      "fb": "facebook",
+      "insta": "insta",
+      "linkedin": "linkedin",
+      "secnum": "7894561230",
+      "id": 4
     },
     {
-      "id":"05",
-      "Name":"Maddy",
-      "JobTitle":"Job title1200",
-      "MobileNumber":"+1 651-319-4767",
-      "Emailid":"johnadam@gmail.com"
+      "Name": "dairy",
+      "JobTitle": "React",
+      "MobileNumber": "0123456",
+      "Emailid": "janardani@gmail.com",
+      "org": "org",
+      "website": "website",
+      "fb": "facebook",
+      "insta": "insta",
+      "linkedin": "linkedin",
+      "secnum": "7894561230",
+      "id": 5
+    },
+    {
+      "Name": "milk",
+      "JobTitle": "job",
+      "MobileNumber": "0123",
+      "Emailid": "mail",
+      "org": "org",
+      "website": "web",
+      "fb": "face",
+      "insta": "insta",
+      "linkedin": "link",
+      "secnum": "0123",
+      "id": 6
+    },
+    {
+      "Name": "mini",
+      "JobTitle": "sdf",
+      "MobileNumber": "01236",
+      "Emailid": "hiusdg",
+      "org": "sdgsd",
+      "website": "gsdg",
+      "fb": "gsdg",
+      "insta": "sdgsd",
+      "linkedin": "sdgsdg",
+      "secnum": "5725",
+      "id": 7
     }
   ],
-  "reactDonutChartdata" : [
+  "reactDonutChartdata": [
     {
       "label": "Washington",
-      "value":78
+      "value": 78
     },
     {
       "label": "Los Angeles",
@@ -65,7 +120,7 @@
     },
     {
       "label": "North Coast",
-      "value":34
+      "value": 34
     },
     {
       "label": "Great Basin",

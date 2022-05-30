@@ -1,7 +1,11 @@
+
 .dash-header
 {
     background: #F26339;
     padding: 13px 0px 12px 30px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
 }
 .dash-head-logo {
     width: 36px;
@@ -47,6 +51,36 @@
 .dash-header .christ-down-arrow {
     margin-left: 6px;
     width: 12px;
+    position: relative;
+}
+.logout {
+    position: absolute;
+    top: 58px;
+    background: #f26339;
+    font-size: 16px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    align-items: center;
+    right: -5px;
+    width: 137px;
+    font-weight: 500;
+}
+
+.logout svg {
+    position: relative;
+    left: 0px;
+    width: 22px;
+    float: left;
+    margin-right: 4px;
+    top: 2px;
+    transition: 0.2s;
+}
+.logout svg:hover {
+    left: -5px;
+}
+.logout p {
+    margin-bottom: 0px;
 }
 .christ-down-arrow img {
     width: 100%;
@@ -75,8 +109,10 @@
     background: #1E1F22;
     padding: 33px 0px 0px 0px;
     transition: 0.8s;
-    position: absolute;
-    height: calc(100vh - 86px);
+    height: 100%;
+    min-height: 100vh;
+    position: fixed;
+    margin-top: 86px;
 }
 .dash-right-main
 {
@@ -84,7 +120,11 @@
     padding: 30px;
     margin-left: 365px;
     transition: 0.8s;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    height: 100%;
+    min-height: 100vh;
+    margin-left: 365px;
+    margin-top: 86px;
 }
 .dash-board-head-main
 {

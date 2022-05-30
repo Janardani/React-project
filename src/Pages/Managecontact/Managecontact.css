@@ -2,6 +2,8 @@
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 20px;
+    text-transform: uppercase;
+
 }
 .manage-main-div
 {
@@ -74,3 +76,9 @@ tr.managecontact-tr th {
     text-align: left !important;
     background: #1E1F22 !important;
 }
+.icon-div div {
+    margin-right: 8px;
+  }
+  .icon-div div:nth-child(3) {
+    margin-right: 0;
+  }

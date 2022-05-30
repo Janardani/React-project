@@ -1,5 +1,5 @@
-import React from 'react';
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import React,{useEffect} from 'react';
+import {BrowserRouter,Routes,Route, useNavigate} from 'react-router-dom';
 import './App.css';
 
 import  Login  from './Pages/login/login';
@@ -13,6 +13,17 @@ import Addcontactmain from './Pages/Addcontact/Addcontactmain';
 
 
 function App() {
+// const navigate = useNavigate();
+  // useEffect(() => {
+  //   if(sessionStorage.getItem("sesemail"))
+  //   {
+  //     navigate('/');
+  //   }
+  //   else{
+  //     navigate('/Login')
+  //   }
+  
+  // }, [])
 
  
   return (
@@ -25,8 +36,7 @@ function App() {
     <Route path='/Forgotpassword'  element={<Forgotpassword />} />
     <Route path='/Resetpassword' element={<Resetpassword />} />
     <Route path='/Addcontact' element={<Addcontactmain />} />
-  
-  </Routes>
+    </Routes>
   </BrowserRouter>
    </>
   );

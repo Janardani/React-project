@@ -26,6 +26,13 @@ function Login() {
     useEffect(() => {
         const result = async () =>{axios.get("http://localhost:8001/User").then(res => setuserdata(res.data));}
         result();
+        if(sessionStorage.getItem("sesemail"))
+        {
+          navigate('/');
+        }
+        else{
+          navigate('/Login')
+        }
       }, []);
     const passwordshow = () => {
         seteye(!eye)
@@ -58,15 +65,18 @@ function Login() {
         }
         else {
             setpassworderrormsg('')
-        }
+        
         if (validatedmail && validatedPassword) {
             console.log(userdata[0].email);
             console.log(data.email);
+            
            for(var i=0 ;i<userdata.length ;i++)
            {
                if((userdata[i].email==data.email)&&(userdata[i].password==data.password))
                {
                    console.log('yes');
+                   sessionStorage.setItem("sesemail",data.email);
+                //    sessionStorage.removeItem("sesemail")
                    navigate("/")
                    setflat(true)
                   console.log(flat)
@@ -77,6 +87,7 @@ function Login() {
            }
            
     }
+}
 }
 
     return (
