@@ -1,0 +1,51 @@
+.inf-img {
+    background: #1E1F22;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.inf-para {
+    color: #939393;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.inf-strng {
+    font-weight: 400;
+    font-size: 16px;
+}
+.inf-linkedin {
+    color: #4182D0;
+}
+.inf-insta {
+    color: #EA5D87;
+}
+.inf-fb {
+    color: #2E85F7;
+}
+.inf-web {
+    color: #06B4A9;
+}
+a.con-name {
+    color: #DB9B88;
+}
+a.con-name:hover {
+    color: #d56443;
+}
+.back-btn {
+    color: #969696 !important;
+    border: 1px solid #969696 !important;
+    border-radius: 5px !important;
+    margin-bottom: 20px !important;
+    position: relative;
+    padding-left: 60px !important;
+    padding-right: 30px !important;
+}
+.contact-main .contactdetail {
+    margin-bottom: 0px;
+}
+.backbtnlogo {
+    position: absolute;
+    top: 3px;
+    left: 30px;
+}

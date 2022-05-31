@@ -15,3 +15,7 @@ export const passwordValidator2=(password)=>{
     const reGex=/^(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
     return reGex.test(password);
 }
+export const NumberValidator = (password) => {
+    const reGex =/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    return reGex.test(password);
+}

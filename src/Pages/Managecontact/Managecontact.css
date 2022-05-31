@@ -66,7 +66,7 @@ tr.managecontact-tr th {
     align-items: center;
 }
 .filter-btn {
-    color: #535354 !important;
+    color: #fff !important;
     border: 1px solid #2F3032 !important;
     border-radius: 5px !important;
     padding-left: 20px !important;
@@ -82,3 +82,11 @@ tr.managecontact-tr th {
   .icon-div div:nth-child(3) {
     margin-right: 0;
   }
+
+  .table.manage-contact-table tbody tr td {
+    padding-block: 13px !important;
+    border-bottom: 1px solid #292929 !important;
+}
+.table.manage-contact-table tbody {
+    border-top: 0 !important;
+}

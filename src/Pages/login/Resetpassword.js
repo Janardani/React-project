@@ -62,6 +62,7 @@ console.log(value+1);
             "password": reset.password
         }
            axios.put(`http://localhost:8001/User/${value+1}`,data);
+           localStorage.clear("id for validation");
             navigate('/Login')
         }
        

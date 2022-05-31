@@ -9,6 +9,8 @@ import Managecontact from './Pages/Managecontact/Managecontact';
 import Forgotpassword from './Pages/login/Forgotpassword';
 import Resetpassword from './Pages/login/Resetpassword';
 import Addcontactmain from './Pages/Addcontact/Addcontactmain';
+import Contactinformationmain from './Pages/Contactinformation/Contactinformationmain';
+import Editcontactmain  from './Pages/Editcontact/Editcontactmain';
 
 
 
@@ -36,6 +38,8 @@ function App() {
     <Route path='/Forgotpassword'  element={<Forgotpassword />} />
     <Route path='/Resetpassword' element={<Resetpassword />} />
     <Route path='/Addcontact' element={<Addcontactmain />} />
+    <Route path='/Contactinformation' element={<Contactinformationmain />} />
+    <Route path='/Editcontact' element={<Editcontactmain />} />
     </Routes>
   </BrowserRouter>
    </>

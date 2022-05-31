@@ -37,9 +37,6 @@ function Login() {
     const passwordshow = () => {
         seteye(!eye)
     }
-
-
-
     const loginsubmit = (event) => {
         event.preventDefault();
         const validatedmail = emailValidator(data.email);
