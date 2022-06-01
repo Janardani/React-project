@@ -90,3 +90,55 @@ tr.managecontact-tr th {
 .table.manage-contact-table tbody {
     border-top: 0 !important;
 }
+.page-ul {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0;
+    align-items: center;
+}
+.page-ul li {
+    padding-left: 10px;
+}
+.pagination-main {
+    background: #1E1F22;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+.page-show {
+    margin-bottom: 0;
+}
+.prevbtn {
+    color: #FFFFFF !important;
+}
+.page-ul li .num-btn:hover {
+    border: none;
+    outline: none;
+    background: #F26339;
+    border-radius: 4px;
+}
+.page-ul li .num-btn{
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+}
+.page-ul li .btn:focus {
+    box-shadow: none !important;
+    border: 0 !important;
+    outline: 0 !important;
+}
+
+.page-ul li .nextbtn
+{
+    color: #189946 !important;
+}
+.prevbtn:hover {
+    color: #c3c0c0 !important;
+}
+.table.manage-contact-table tbody tr td:last-child {
+    cursor: pointer;
+}
+.active-btn{
+    color: #189946 !important;
+}

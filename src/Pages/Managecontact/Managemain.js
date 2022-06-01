@@ -36,7 +36,53 @@ function Managemain() {
       window.location.reload(false)
   
    }
+
+//    pagination
+const[currentPage,setCurrentPage]=useState(1);
+const[itemsPerPage,setItemsPerPage]=useState(10);
+const indexofLastValue=currentPage*itemsPerPage;
+const indexofFirstValue=indexofLastValue-itemsPerPage;
+const shownItems=userdata.slice(indexofFirstValue,indexofLastValue);
+
+const pages=[];
+for(let i=1;i<=Math.ceil(userdata.length/itemsPerPage);i++){
+    pages.push(i)
+}
+
+const handlePage=(pageId)=>{
+    setCurrentPage(pageId+1)
+    console.log("currentpage",pageId+1);
+}
+const handlePageSize=(e)=>{
+setItemsPerPage(e.target.value);
+}
+
+
+const handlePrev=()=>{
+    setCurrentPage(currentPage-1)
+    if((currentPage - 1) % limit==0){
+        setmaxlimitNumber(maxlimitNumber - limit);
+        setminlimitNumber(minlimitNumber - limit);
+      }
+}
+const handleNext=()=>{
+    setCurrentPage(currentPage+1);
+    if((currentPage + 1) > maxlimitNumber){
+        setmaxlimitNumber(maxlimitNumber+limit)
+        setminlimitNumber(minlimitNumber+limit)
+      }
+}
+
+const limit = 3;
+const [minlimitNumber, setminlimitNumber] = useState(1);
+const [maxlimitNumber, setmaxlimitNumber] = useState(3);
+
+let incrementDots=null;
+if(pages.length>maxlimitNumber){
+    incrementDots= <li onClick={handleNext}>...</li>
+}
     return (
+        <>
         <div>
             <h3 className='contactdetail'>Contact Detail</h3>
             <div className='manage-main-div'>
@@ -66,10 +112,10 @@ function Managemain() {
                                 <th>Email Id</th>
                                 <th>Action</th>
 
-                            </tr>
+                         </tr>
                         </thead>
                         <tbody>
-                        {userdata.filter(val => 
+                        {shownItems.filter(val => 
                         val.Name.toLowerCase().includes(filtername.toLowerCase()) && val.JobTitle.toLowerCase().includes(filterjob.toLowerCase()) && val.MobileNumber.toLowerCase().includes(filternum.toLowerCase()) && val.Emailid.toLowerCase().includes(filteremail.toLowerCase())
                         ).map(filteredName => {
                             return(filteredName)
@@ -93,12 +139,43 @@ function Managemain() {
                             })}
                         </tbody>
                     </table>
-                    <div>
-                        
-                    </div>
+                   
+                   
                 </div>
             </div>
         </div>
+        <div className='pagination-main d-flex justify-content-between align-items-center'>
+            <div className='d-flex'>
+            <p className='page-show'>Show</p>
+                    <select onChange={handlePageSize} value={itemsPerPage}>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+            </div>
+           
+                    <ul className='page-ul'>
+                        <li><button  onClick={handlePrev}  disabled={currentPage == pages[0] ? true :false} className="btn prevbtn">Prev</button></li>
+                    
+                       {
+                            pages.map((e,index)=>{
+
+                              if((e<=maxlimitNumber)&&(e>=minlimitNumber)){
+                                return(
+                                    <>
+                                     <li key={index}  ><button id={e} onClick={()=>{handlePage(index)}} className={currentPage==e?"btn num-btn active-btn":"btn num-btn"} >{e}</button></li>
+                                    </>
+                                   
+                                )
+                              }
+                             
+                        })
+                        }
+                       {incrementDots}
+                    <li><button  onClick={handleNext}  disabled={currentPage == pages.length ? true :false} className="btn prevbtn nextbtn">Next</button></li>
+                    </ul>
+                    </div>
+    </>
     )
 }
 

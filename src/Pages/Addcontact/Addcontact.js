@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { emailValidator,NumberValidator} from '../../Shared/Passwordregexp'
+import { emailValidator, NumberValidator } from '../../Shared/Passwordregexp'
 import add1 from '../../Assets/images/add1.png'
 import add2 from '../../Assets/images/add2.png'
 import add3 from '../../Assets/images/add3.png'
@@ -53,22 +53,21 @@ const Addcontact = () => {
     const contactupdate = () => {
         const validatedmail = emailValidator(contactdata.Emailid);
         const validatednumber = NumberValidator(contactdata.MobileNumber);
-        const Validatesecnumber  = NumberValidator(contactdata.secnum);
-        if ( (contactdata.Name.length) == 0 && (contactdata.JobTitle.length) == 0 && (contactdata.MobileNumber.length) == 0  && (contactdata.Emailid.length) == 0) {
+        const Validatesecnumber = NumberValidator(contactdata.secnum);
+        if ((contactdata.Name.length) == 0 || (contactdata.JobTitle.length) == 0 || (contactdata.MobileNumber.length) == 0 || (contactdata.Emailid.length) == 0) {
             notify()
         }
-        else if (!validatedmail){
-            setemailerror('Please enter validate email'); 
+        else if (!validatedmail) {
+            setemailerror('Please enter validate email');
         }
-        else if(!validatednumber)
-        {
+        else if (!validatednumber) {
             setnumoneerror('Please enter valide mobile number');
             setemailerror('')
         }
-        else if(!Validatesecnumber)
-        {
+        else if (!Validatesecnumber) {
             setnumtwoerror('Please enter valide mobile number');
             setnumoneerror('')
+            setemailerror('')
         }
         else {
             axios.post(`http://localhost:8001/managecontact`, contactdata);
@@ -93,9 +92,9 @@ const Addcontact = () => {
                 <div className='apex'>
                     <div className='upload-img'>
                         <div>
-                        <img src={apex}></img>
+                            <img src={apex}></img>
                         </div>
-                      
+
                     </div>
                 </div>
                 <div className='basic-information'>
@@ -118,29 +117,29 @@ const Addcontact = () => {
                             <label>Name <span className='req'>*</span></label>
                             <input type="text" name='Name' value={contactdata.Name} onChange={condatafun} placeholder="Enter name"></input>
                             <div className='add-img'>
-                                <img  src={add1} alt="image here"/>
+                                <img src={add1} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Job Title <span className='req'>*</span></label>
                             <input type="text" name='JobTitle' value={contactdata.JobTitle} onChange={condatafun} placeholder="Enter Job Title"></input>
                             <div className='add-img'>
-                                <img  src={add2} alt="image here"/>
+                                <img src={add2} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Mobile Number <span className='req'>*</span></label>
                             <input type="text" name='MobileNumber' value={contactdata.MobileNumber} onChange={condatafun} placeholder="Enter Phone Number"></input>
                             <div className='add-img'>
-                                <img  src={add3} alt="image here"/>
+                                <img src={add3} alt="image here" />
                             </div>
                             {numeonerror && <p className='email-error-msg'>{numeonerror}</p>}
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Email id <span className='req'>*</span></label>
-                            <input type="text" name='Emailid' value={contactdata.Emailid} onChange={condatafun} placeholder="Enter Email id"></input>
+                            <input type="text" name='Emailid' value={contactdata.Emailid} onChange={condatafun} placeholder="Enter Email id" />
                             <div className='add-img'>
-                                <img  src={add4} alt="image here"/>
+                                <img src={add4} alt="image here" />
                             </div>
                             {emailerror && <p className='email-error-msg'>{emailerror}</p>}
                         </div>
@@ -148,42 +147,42 @@ const Addcontact = () => {
                             <label>Organization</label>
                             <input type="text" name='org' value={contactdata.org} onChange={condatafun} placeholder="Enter Organization"></input>
                             <div className='add-img'>
-                                <img  src={add5} alt="image here"/>
+                                <img src={add5} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Website</label>
                             <input type="text" name='website' value={contactdata.website} onChange={condatafun} placeholder="Enter Website"></input>
                             <div className='add-img'>
-                                <img  src={add6} alt="image here"/>
+                                <img src={add6} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Facebook</label>
                             <input type="text" name='fb' value={contactdata.fb} onChange={condatafun} placeholder="Enter facebook link"></input>
                             <div className='add-img'>
-                                <img  src={add7} alt="image here"/>
+                                <img src={add7} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Instagram</label>
                             <input type="text" name='insta' value={contactdata.insta} onChange={condatafun} placeholder="Enter Instagram link"></input>
                             <div className='add-img'>
-                                <img  src={add8} alt="image here"/>
+                                <img src={add8} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Linkedin</label>
                             <input type="text" name='linkedin' value={contactdata.linkedin} onChange={condatafun} placeholder="Enter Linkedin link"></input>
                             <div className='add-img'>
-                                <img  src={add9} alt="image here"/>
+                                <img src={add9} alt="image here" />
                             </div>
                         </div>
                         <div className='info-input d-flex flex-column col-lg-4'>
                             <label>Secondary  Phone Number</label>
                             <input type="text" name='secnum' value={contactdata.secnum} onChange={condatafun} placeholder="Enter Phone Number"></input>
                             <div className='add-img'>
-                                <img  src={add3} alt="image here"/>
+                                <img src={add3} alt="image here" />
                             </div>
                             {numtwoerror && <p className='email-error-msg'>{numtwoerror}</p>}
                         </div>
@@ -191,7 +190,7 @@ const Addcontact = () => {
                     </div>
                     <div className='contactfrom-btn d-flex justify-content-center'>
                         <button className='btn add-update' onClick={contactupdate}>Update</button>
-                        <button className='btn add-cancel' >Cancel</button>
+                        <button className='btn add-cancel' onClick={() => navigate("/Managecontact")}>Cancel</button>
                     </div>
 
 
