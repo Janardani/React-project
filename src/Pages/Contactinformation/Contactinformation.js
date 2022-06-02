@@ -30,7 +30,7 @@ const Contactinformation = () => {
         navigate('/Managecontact')
     }
   
-    return (
+  return (
         <div>
            <div className='contact-main d-flex justify-content-between align-items-baseline'>
             <h3 className='contactdetail'>Contact information</h3>

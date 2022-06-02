@@ -107,6 +107,14 @@ tr.managecontact-tr th {
 }
 .page-show {
     margin-bottom: 0;
+    padding-right: 14px;
+}
+.page-sel {
+    background: #202020 !important;
+    border: 1px solid #2F3032 !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    padding: 8px 30px 8px 10px !important;
 }
 .prevbtn {
     color: #FFFFFF !important;

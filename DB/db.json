@@ -44,32 +44,6 @@
       "id": 2
     },
     {
-      "Name": "Sujadevi",
-      "JobTitle": "Web designer",
-      "MobileNumber": "865479321",
-      "Emailid": "sujadevi@gmail.com",
-      "org": "educationalorgnaiton.com",
-      "website": "https://www.education.com/nfc...",
-      "fb": "https://www.facebook.com/Thomas",
-      "insta": "https://www.instagram.com/Thomas/",
-      "linkedin": "https://www.linked.com/Thomas/",
-      "secnum": "7894561230",
-      "id": 3
-    },
-    {
-      "Name": "Mani kandan",
-      "JobTitle": "Animation",
-      "MobileNumber": "7786398451",
-      "Emailid": "manikandan@gmail.com",
-      "org": "educationalorgnaiton.com",
-      "website": "https://www.education.com/nfc...",
-      "fb": "https://www.facebook.com/Thomas",
-      "insta": "https://www.instagram.com/Thomas/",
-      "linkedin": "https://www.linked.com/Thomas/",
-      "secnum": "7894561230",
-      "id": 4
-    },
-    {
       "Name": "dairy",
       "JobTitle": "Angular",
       "MobileNumber": "8865321479",
@@ -120,19 +94,6 @@
       "linkedin": "sdgs",
       "secnum": "556",
       "id": 8
-    },
-    {
-      "Name": "K. janardani ",
-      "JobTitle": "xfgdfg",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardani@gmail.com",
-      "org": "sdgsd",
-      "website": "gsdgsdg",
-      "fb": "sdgsdg",
-      "insta": "dgsd",
-      "linkedin": "gsdgs",
-      "secnum": "0123456987",
-      "id": 9
     },
     {
       "Name": "aaaa",
@@ -499,19 +460,6 @@
       "id": 37
     },
     {
-      "Name": "Aarthi",
-      "JobTitle": "Developer",
-      "MobileNumber": "1023657",
-      "Emailid": "janardani@gmail.com",
-      "org": "organiazait",
-      "website": "sdgsd",
-      "fb": "sdgsd",
-      "insta": "dsgsdg",
-      "linkedin": "sdgs",
-      "secnum": "556",
-      "id": 38
-    },
-    {
       "Name": "K. janardani ",
       "JobTitle": "xfgdfg",
       "MobileNumber": "1234567890",
@@ -668,82 +616,17 @@
       "id": 50
     },
     {
-      "Name": "K. janardani ",
-      "JobTitle": "",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardani@gmail.com",
-      "org": "",
-      "website": "",
-      "fb": "",
-      "insta": "",
-      "linkedin": "",
-      "secnum": "1234560789",
-      "id": 51
-    },
-    {
-      "Name": "K. janardani ",
+      "Name": "Hema",
       "JobTitle": "React",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardnai@gmail.com",
-      "org": "organization",
-      "website": "Website",
-      "fb": "fb",
-      "insta": "insta",
-      "linkedin": "Linkedin",
-      "secnum": "1234567890",
-      "id": 52
-    },
-    {
-      "Name": "Vimal",
-      "JobTitle": "kdfjgidfg",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardani@gmail.com",
+      "MobileNumber": "0123456789",
+      "Emailid": "hema@gmail.com",
       "org": "",
       "website": "",
       "fb": "",
       "insta": "",
       "linkedin": "",
-      "secnum": "1234567890",
-      "id": 53
-    },
-    {
-      "Name": "Vimal extra",
-      "JobTitle": "kdfjgidfg",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardani@gmail.com",
-      "org": "",
-      "website": "",
-      "fb": "",
-      "insta": "",
-      "linkedin": "",
-      "secnum": "1234567890",
-      "id": 54
-    },
-    {
-      "Name": "Vimal extra",
-      "JobTitle": "kdfjgidfg",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardani@gmail.com",
-      "org": "",
-      "website": "",
-      "fb": "",
-      "insta": "",
-      "linkedin": "",
-      "secnum": "1234567890",
-      "id": 55
-    },
-    {
-      "Name": "Vimal s",
-      "JobTitle": "kdfjgidfg",
-      "MobileNumber": "1234567890",
-      "Emailid": "janardani@gmail.com",
-      "org": "",
-      "website": "",
-      "fb": "",
-      "insta": "",
-      "linkedin": "",
-      "secnum": "1234567890",
-      "id": 56
+      "secnum": "",
+      "id": 51
     }
   ],
   "reactDonutChartdata": [
