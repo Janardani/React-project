@@ -5,7 +5,7 @@ import greeneye from '../../Assets/images/greeneye.png';
 import pen from '../../Assets/images/pen.png';
 import trash from '../../Assets/images/trash.png';
 import axios from 'axios';
-
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 function Managemain() {
     const navigate = useNavigate();
@@ -43,8 +43,7 @@ function Managemain() {
     const indexofLastValue = currentPage * itemsPerPage;
     const indexofFirstValue = indexofLastValue - itemsPerPage;
     const shownItems = userdata.slice(indexofFirstValue, indexofLastValue);
-    console.log("show items",userdata.length);
-
+    
     const pages = [];
     for (let i = 1; i <= Math.ceil(userdata.length / itemsPerPage); i++) {
         pages.push(i)
@@ -91,7 +90,15 @@ function Managemain() {
                             <p className='list-contact'>List of Contacts</p>
                         </div>
                         <div className='col-lg-7 d-flex justify-content-end'>
-                            <button className='btn sample-doc sample-btn'>Sample Document Download</button>
+                           <span className='sample-doc sample-btn'>
+                           <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="download-table-xls-button"
+                    table="table-to-xls"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Sample Document Download"/>
+                    </span> 
                             <button className='btn bulk-up sample-btn'>Bulk Upload Contact</button>
                             <button onClick={() => { navigate("/Addcontact") }} className='btn add-con sample-btn'>Add Contact</button>
                         </div>
@@ -102,7 +109,7 @@ function Managemain() {
                             <input type="text" className='filter-btn ' placeholder="+1 651-319-4767" value={filternum} onChange={(e) => setfilternum(e.target.value)} />
                             <input type="text" className='filter-btn' placeholder="Search by Email Id" value={filteremail} onChange={(e) => setfilteremail(e.target.value)} />
                         </div>
-                        <table className='table manage-contact-table'>
+                        <table className='table manage-contact-table' id="table-to-xls">
                             <thead>
                                 <tr className='managecontact-tr'>
                                     <th>#</th>
@@ -161,7 +168,6 @@ function Managemain() {
 
                 <ul className='page-ul'>
                     <li><button onClick={handlePrev} disabled={currentPage == pages[0] ? true : false} className="btn prevbtn">Prev</button></li>
-
                     {
                         pages.map((e, index) => {
 

@@ -2,30 +2,61 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-function Dashleft() {
+function Dashleft({getdata}) {
     const navigate = useNavigate();
-    const [activeclass1, setactiveclass1] = useState(false);
-    const [activeclass2, setactiveclass2] = useState(false);
-    const [activeclass3, setactiveclass3] = useState(false);
-    var value;
-    const sideclick = (e) => {
-        value = e.target.id;
-        console.log("vlaue", value);
-        setactiveclass1(!activeclass1)
-    }
-    const sideclick2 = (e) => {
-        value = e.target.id;
-        console.log("vlaue", value);
-        setactiveclass2(!activeclass1)
-    }
-    const sideclick3 = (e) => {
-        value = e.target.id;
-        console.log("vlaue", value);
-        setactiveclass3(!activeclass1)
-    }
+    const leftdata = [{ "id": 1, "name": "Dashboard" },
+    { "id": 2, "name": "Manage Contact" },
+    { "id": 3, "name": "Reports" }]
+const [holdkey, setholdkey] = useState()
+    // const getdata = (key) =>
+    // {
+    //     {leftdata.filter(data => {
+    //        if(data.id == key)
+    //        {
+    //            console.log("key",key ,"data id",data.id);
+    //            setholdkey(key)
+    //            console.log("hold key",holdkey);
+    //            localStorage.setItem("dashboard key",key)
+    //            if(key ==1)
+    //            {
+    //                navigate("/")
+    //            }
+    //            else if(key ==2)
+    //            {
+    //                navigate("/Managecontact")
+    //            }
+ 
+    //        }
+    //     })}
+    // }
+
+
+console.log("get data",{getdata});
     return (
         <div>
-            <div className={activeclass1 ? 'speed-head active' : 'speed-head'} id='1' onClick={sideclick}>
+            <ul style={{ listStyleType: "none" }}>
+                {leftdata.map((data,key) => {
+                    return (
+                        <li key={key} className={((key+1)==holdkey)?'speed-head active':"speed-head"} onClick={() => getdata(key+1)}>{data.name}</li>
+                    )
+                })}
+            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* <div className={activeclass1 ? 'speed-head active' : 'speed-head'} id='1' onClick={sideclick}>
 
                 <span className='speed-icon '>
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
@@ -62,7 +93,7 @@ function Dashleft() {
 
                 </span>
                 <span className=' speed-para'>Reports</span>
-            </div>
+            </div> */}
         </div>
     )
 }

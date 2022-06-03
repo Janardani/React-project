@@ -145,7 +145,7 @@ width: 100% !important;
     font-weight: 500;
     text-decoration: none;
 }
-.email-password
+/* .email-password
 {
     background: url('../../Assets/images/eyeicon.png') 82% no-repeat !important;
     position: absolute;
@@ -154,7 +154,7 @@ width: 100% !important;
     top: 5px;
     right: 14px;
    
-}
+} */
 .email-head {
     position: relative;
 }

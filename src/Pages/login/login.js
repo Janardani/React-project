@@ -1,42 +1,43 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import scan from '../../Assets/images/scan.png';
 import logo from '../../Assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
 import './Login.css'
-import { emailValidator, passwordValidator , passwordValidator1,passwordValidator2 } from '../../Shared/Passwordregexp'
+import { emailValidator, passwordValidator, passwordValidator1, passwordValidator2 } from '../../Shared/Passwordregexp'
 import axios from 'axios';
 
 
 function Login() {
     let navigate = useNavigate();
-    const [data, setdata] = useState({email:'',password:''});
-    const valuechange = (e) =>
-    {
-        setdata({ ...data, [e.target.name]: e.target.value });
-    }
-    
+    const [data, setdata] = useState({ email: '', password: '' });
     const [eye, seteye] = useState(true)
     const [emailerrormsg, setemailerrormsg] = useState('')
     const [passworderrormsg, setpassworderrormsg] = useState('')
     const [userdata, setuserdata] = useState();
-    const [flat, setflat] = useState(false)
 
-  
-    useEffect(() => {
-        const result = async () =>{axios.get("http://localhost:8001/User").then(res => setuserdata(res.data));}
-        result();
-        if(sessionStorage.getItem("sesemail"))
-        {
-          navigate('/');
-        }
-        else{
-          navigate('/Login')
-        }
-      }, []);
+    /* get input value */
+    const valuechange = (e) => {
+        setdata({ ...data, [e.target.name]: e.target.value });
+    }
+    // password show and hide
     const passwordshow = () => {
         seteye(!eye)
     }
+
+    useEffect(() => {
+        const result = async () => { axios.get("http://localhost:8001/User").then(res => setuserdata(res.data)); }
+        result();
+        if (sessionStorage.getItem("sesemail")) {
+            navigate('/');
+        }
+        else {
+            navigate('/Login')
+        }
+    }, []);
+
+
+    //   Validation and navigation
     const loginsubmit = (event) => {
         event.preventDefault();
         const validatedmail = emailValidator(data.email);
@@ -52,41 +53,29 @@ function Login() {
         if (!validatedPassword) {
             setpassworderrormsg('Password must be in 8 character')
         }
-       else  if(!validatedPassword1)
-        {
+        else if (!validatedPassword1) {
             setpassworderrormsg('Make sure password must contain atleast one uppercase and one lowercase')
         }
-        else  if(!validatedPassword2)
-        {
+        else if (!validatedPassword2) {
             setpassworderrormsg('Make sure password must contain atleast one special character and number')
         }
         else {
             setpassworderrormsg('')
-        
-        if (validatedmail && validatedPassword) {
-            console.log(userdata[0].email);
-            console.log(data.email);
-            
-           for(var i=0 ;i<userdata.length ;i++)
-           {
-               if((userdata[i].email==data.email)&&(userdata[i].password==data.password))
-               {
-                   console.log('yes');
-                   sessionStorage.setItem("sesemail",data.email);
-                //    sessionStorage.removeItem("sesemail")
-                   navigate("/")
-                   setflat(true)
-                  console.log(flat)
-               }
-               else{
-                setpassworderrormsg('Invalid username or password')
-               }
-           }
-           
-    }
-}
-}
 
+            if (validatedmail && validatedPassword) {
+                userdata.filter(userdata => {
+                    if ((userdata.email == data.email) && (userdata.password == data.password)) {
+                        sessionStorage.setItem("sesemail", userdata.id);
+                        console.log("userdata", userdata.id);
+                        navigate("/")
+                    }
+                    else {
+                        setpassworderrormsg('Invalid username or password')
+                    }
+                })
+            }
+        }
+    }
     return (
         <div>
             <div className="login">
@@ -127,11 +116,11 @@ function Login() {
                             <div className="forgot-div remeber-label">
                                 <div className="form-check">
                                     <label className="check-box-main">Remember me
-                                        <input type="checkbox"  />
+                                        <input type="checkbox" />
                                         <span className="checkmark"></span>
                                     </label>
                                 </div>
-                                <div  onClick={()=>{navigate('/Forgotpassword')}} className='forgot-link'>Forgot Password?</div>
+                                <div onClick={() => { navigate('/Forgotpassword') }} className='forgot-link'>Forgot Password?</div>
                             </div>
 
                             <div className="form-group">

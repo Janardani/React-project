@@ -25,9 +25,7 @@ function Forgotpassword() {
     }
         result();
       }, []);
-
-
-    const loginsubmit = (event) => {
+  const loginsubmit = (event) => {
         event.preventDefault();
         for(var i=0;i<  (userdata.length);i++)
         {

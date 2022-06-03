@@ -20,7 +20,7 @@
     {
       "Name": "Janardani kalidass",
       "JobTitle": "React developer",
-      "MobileNumber": "0123456",
+      "MobileNumber": "1234567890",
       "Emailid": "janardani@gmail.com",
       "org": "educationalorgnaiton.com",
       "website": "https://www.education.com/nfc...",
@@ -627,6 +627,19 @@
       "linkedin": "",
       "secnum": "",
       "id": 51
+    },
+    {
+      "Name": "latha",
+      "JobTitle": "dfsdf",
+      "MobileNumber": "0123456789",
+      "Emailid": "janardani@gmail.com",
+      "org": "org.com",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "id": 52
     }
   ],
   "reactDonutChartdata": [

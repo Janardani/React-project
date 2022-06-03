@@ -10,7 +10,6 @@ function Dashright() {
         const result = async () =>{axios.get("http://localhost:8001/reactDonutChartdata").then(res => setuserdata(res.data));}
         result();
       }, []);
-      console.log(userdata)
   const reactDonutChartBackgroundColor = [
     "#CA9C31",
     "#854095",

@@ -81,7 +81,8 @@ span.req {
   padding-left: 10px;
   background: transparent;
   border: 0;
-  color: #fff;
+  color: #fff; 
+  width: 93%;
 }
 .info-input input:focus-visible {
   outline: none;

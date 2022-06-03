@@ -147,6 +147,7 @@
     color: #6B6B6B;
     margin-bottom: 26px;
     height: 45px;
+
 }
 .speed-head.active svg path, .speed-head:hover svg path {
     fill: #fff !important;
