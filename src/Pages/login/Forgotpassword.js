@@ -2,10 +2,9 @@ import React, { useState,useEffect } from 'react'
 import scan from '../../Assets/images/scan.png';
 import logo from '../../Assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
-
-
 import './Login.css'
 import axios from 'axios';
+
 
 
 function Forgotpassword() {
@@ -67,7 +66,7 @@ function Forgotpassword() {
                         <form onSubmit={loginsubmit}>
                             <div className="form-group">
                                 <label htmlFor="usr" className="email-para">Email Id</label>
-                                <input type="text"  className="form-control email-inp email-inp-one" id="usr-1" name="email" value={email} onChange={valuechange} />
+                                <input type="text"  autoComplete='off' className="form-control email-inp email-inp-one" id="usr-1" name="email" value={email} onChange={valuechange} />
                                 {emailerrormsg && <p className='email-error-msg'>{emailerrormsg}</p>}
                             </div>
                             <div className="form-group forgotpassword-submit">

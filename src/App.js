@@ -1,45 +1,29 @@
 import React,{useEffect} from 'react';
 import {BrowserRouter,Routes,Route, useNavigate} from 'react-router-dom';
-import './App.css';
-
 import  Login  from './Pages/login/login';
-
-import Dashboard from './Common/Dashboard';
-import Managecontact from './Pages/Managecontact/Managecontact';
 import Forgotpassword from './Pages/login/Forgotpassword';
 import Resetpassword from './Pages/login/Resetpassword';
-import Addcontactmain from './Pages/Addcontact/Addcontactmain';
-import Contactinformationmain from './Pages/Contactinformation/Contactinformationmain';
-import Editcontactmain  from './Pages/Editcontact/Editcontactmain';
+import Dashright from './Common/Dashright';
+import Managemain from './Pages/Managecontact/Managemain';
+import Addcontact from './Pages/Managecontact/Addcontact';
+import Contactinformation from './Pages/Managecontact/Contactinformation';
+import Editcontact from './Pages/Managecontact/Editcontact';
+import Report from './Pages/Reports/Report';
 
-
-
-function App() {
-// const navigate = useNavigate();
-  // useEffect(() => {
-  //   if(sessionStorage.getItem("sesemail"))
-  //   {
-  //     navigate('/');
-  //   }
-  //   else{
-  //     navigate('/Login')
-  //   }
-  
-  // }, [])
-
- 
+function App() { 
   return (
    <>
    <BrowserRouter>
   <Routes>
-    <Route path="/" element={<Dashboard />}/>
+    <Route path="/" element={<Dashright/>}/>
     <Route path='/Login' element={<Login />} />
-    <Route path='/Managecontact' element={<Managecontact />} />
+    <Route path='/Managecontact' element={<Managemain />} />
     <Route path='/Forgotpassword'  element={<Forgotpassword />} />
     <Route path='/Resetpassword' element={<Resetpassword />} />
-    <Route path='/Addcontact' element={<Addcontactmain />} />
-    <Route path='/Contactinformation' element={<Contactinformationmain />} />
-    <Route path='/Editcontact' element={<Editcontactmain />} />
+    <Route path='/Addcontact' element={<Addcontact />} />
+    <Route path='/Contactinformation' element={<Contactinformation />} />
+    <Route path='/Editcontact' element={<Editcontact />} />
+    <Route path='/Report' element={<Report />} />
     </Routes>
   </BrowserRouter>
    </>
@@ -47,3 +31,4 @@ function App() {
 }
 
 export default App;
+

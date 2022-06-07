@@ -3,9 +3,10 @@ import scan from '../../Assets/images/scan.png';
 import logo from '../../Assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
 import { passwordValidator , passwordValidator1,passwordValidator2 } from '../../Shared/Passwordregexp'
-
 import './Login.css'
 import axios from 'axios';
+import whiteeye from '../../Assets/images/whiteeye.png';
+import crosseye from '../../Assets/images/crosseye.png';
 
 
 function Resetpassword() {
@@ -32,8 +33,6 @@ function Resetpassword() {
         result();
       }, []);
       let value = parseInt(localStorage.getItem("id for validation"));
-      
-console.log(value+1);
     const loginsubmit = (event) => {
         event.preventDefault();
         const validatedPassword = passwordValidator(reset.password);
@@ -93,15 +92,15 @@ console.log(value+1);
                     <div className="form-group">
                         <label htmlFor="usr" className="email-para">Password</label>
                         <div className='email-head' >
-                        <input type={eyeone ? 'password' : 'text'} className="form-control email-inp email-inp-one" id="usr" name="password" value={reset.password} onChange={valuechange} />
-                        <div className='email-password' onClick={passwordshowone}></div>
+                        <input type={eyeone ? 'password' : 'text'} autoComplete='off' className="form-control email-inp email-inp-one" id="usr" name="password" value={reset.password} onChange={valuechange} />
+                        <div className='email-password' onClick={passwordshowone}><img src={eyeone ? whiteeye : crosseye} /></div>
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="usr" className="email-para">Confirm Password </label>
                         <div className='email-head' >
-                        <input type={eyetwo ? 'password' : 'text'} className="form-control email-inp email-inp-one" id="usr" name="confirmpassword" value={reset.confirmpassword} onChange={valuechange} />
-                        <div className='email-password' onClick={passwordshowtwo}></div>
+                        <input type={eyetwo ? 'password' : 'text'} autoComplete='off' className="form-control email-inp email-inp-one" id="usr" name="confirmpassword" value={reset.confirmpassword} onChange={valuechange} />
+                        <div className='email-password' onClick={passwordshowtwo}><img src={eyetwo ? whiteeye : crosseye} /></div>
                         </div>
                     </div>
 

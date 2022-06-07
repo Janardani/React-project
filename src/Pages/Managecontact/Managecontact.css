@@ -1,3 +1,222 @@
+/* ------------------------Add Contact start---------------------- */
+.add-contact {
+    background: #1E1F22;
+    border-radius: 5px;
+    padding-inline: 30px;
+}
+
+.add-edit {
+    color: #A7A7A7;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.add-field {
+    background: #F39C12 !important;
+    border: 1px solid #F39C12 !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+}
+
+.add-contact-add {
+    padding-block: 20px;
+    border-bottom: 1px solid #2D2E31;
+}
+
+.info-input label {
+    color: #939393;
+    font-size: 16px;
+    margin-bottom: 16px;
+    margin-left: 15px;
+}
+
+.info-input .custom-input {
+    background: #161616;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid #4B4B4B;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.info-input input::placeholder {
+    color: #858585;
+    font-size: 16px;
+}
+
+.info-input input :-ms-input-placeholder {
+    color: #858585;
+    font-size: 16px;
+}
+
+.info-input input ::-ms-input-placeholder {
+    color: #858585;
+    font-size: 16px;
+}
+
+.add-update {
+    color: #FFFFFF !important;
+    background: #F26339 !important;
+    border: 1px solid #F26339 !important;
+}
+
+.add-cancel {
+    color: #807F7F !important;
+    border: 1px solid #807F7F !important;
+    border-radius: 5px !important;
+    margin-left: 30px !important;
+}
+
+.contactfrom-btn {
+    padding-bottom: 100px;
+}
+
+div#toast-1 .Toastify__toast {
+    background: #fff !important;
+    color: red !important;
+}
+
+span.req {
+    color: #f26339;
+    font-size: 15px;
+}
+
+.info-input {
+    position: relative;
+}
+
+.info-input input {
+    padding-left: 10px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    width: 93%;
+    padding: 13px 20px;
+}
+
+.info-input input:focus-visible {
+    outline: none;
+}
+
+.add-img {
+    float: left;
+    padding: 13px 0px 0px 16px;
+}
+
+.info-input .custom-input input:focus-visible~.add-img svg path {
+    fill: #fff;
+}
+.upload-img {
+    width: 78px;
+    height: 78px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.upload-img img {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+}
+.change-logo-wrapper input {
+    display: none;
+}
+
+.change-logo-btn {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    border: 1px solid #189946 !important;
+    border-radius: 5px !important;
+    padding: 11px 31px !important;
+    margin-left: 20px;
+}
+.apex {
+    padding: 22px 0px 22px 29px;
+    background: #2B2C30;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.remove-photo {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 29px;
+    cursor: pointer;
+}
+/* .add-img svg {
+    fill: #898d99;
+} */
+/* ------------------------Add Contact end---------------------- */
+/* ------------------------Contact information start---------------------- */
+.inf-img {
+    background: #1E1F22;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.inf-para {
+    color: #939393;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.inf-strng {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.inf-linkedin {
+    color: #4182D0;
+}
+
+.inf-insta {
+    color: #EA5D87;
+}
+
+.inf-fb {
+    color: #2E85F7;
+}
+
+.inf-web {
+    color: #06B4A9;
+}
+
+a.con-name {
+    color: #DB9B88;
+}
+
+a.con-name:hover {
+    color: #d56443;
+}
+
+.back-btn {
+    color: #969696 !important;
+    border: 1px solid #969696 !important;
+    border-radius: 5px !important;
+    margin-bottom: 20px !important;
+    position: relative;
+    padding-left: 60px !important;
+    padding-right: 30px !important;
+}
+
+.contact-main .contactdetail {
+    margin-bottom: 0px;
+}
+
+.backbtnlogo {
+    position: absolute;
+    top: 3px;
+    left: 30px;
+}
+
+/* ------------------------Contact information end---------------------- */
+/* ------------------------Managecontact start---------------------- */
 .contactdetail {
     font-weight: 500;
     font-size: 16px;
@@ -5,48 +224,62 @@
     text-transform: uppercase;
 
 }
-.manage-main-div
-{
+
+.manage-main-div {
     background: #1E1F22;
-border-radius: 5px;
-padding: 30px;  
+    border-radius: 5px;
+    padding: 30px;
 }
-.list-contact
-{
+
+.list-contact {
     font-weight: 500;
-font-size: 16px;
-color: #A7A7A7;
+    font-size: 16px;
+    color: #A7A7A7;
 }
+
 .sample-doc {
     color: #E37E06 !important;
     border: 1px solid #E37E06 !important;
     margin-right: 20px !important;
+    align-items: center;
+    display: flex;
 }
+
 .sample-doc button {
     color: #E37E06 !important;
+    background: transparent !important;
+    border: none !important;
 }
+
 .bulk-up {
-    color: #00CACA !important;
     border: 1px solid #00CACA !important;
     margin-right: 20px !important;
 }
+.upload-bulk-btn input {
+    display: none;
+}
+.upload-bulk-btn span {
+    color: #00CACA !important;
+}
 .add-con {
-   
+
     color: #FFFFFF !important;
     background: #189946 !important;
     border: 1px solid #189946 !important;
-   
+
 }
-.sample-btn
-{
+
+.sample-btn {
     font-weight: 500 !important;
     font-size: 14px !important;
     border-radius: 5px !important;
 }
+
 .table.manage-contact-table {
     color: #A7A7A7;
     margin-top: 15px;
 }
+
 .managecontact-tr {
     font-weight: 500;
     font-size: 16px;
@@ -55,19 +288,23 @@ color: #A7A7A7;
     border-radius: 5px;
     border: 1px solid #2F3032;
 }
+
 tr.managecontact-tr th {
     padding: 12px;
 }
+
 .filter-para {
     font-weight: 400;
     font-size: 16px;
 }
+
 .filter-div {
     display: flex;
     margin: 30px 0px 15px 0px !important;
     justify-content: space-between;
     align-items: center;
 }
+
 .filter-btn {
     color: #fff !important;
     border: 1px solid #2F3032 !important;
@@ -79,39 +316,47 @@ tr.managecontact-tr th {
     text-align: left !important;
     background: #1E1F22 !important;
 }
+
 .icon-div div {
     margin-right: 8px;
-  }
-  .icon-div div:nth-child(3) {
-    margin-right: 0;
-  }
+}
 
-  .table.manage-contact-table tbody tr td {
+.icon-div div:nth-child(3) {
+    margin-right: 0;
+}
+
+.table.manage-contact-table tbody tr td {
     padding-block: 13px !important;
     border-bottom: 1px solid #292929 !important;
 }
+
 .table.manage-contact-table tbody {
     border-top: 0 !important;
 }
+
 .page-ul {
     display: flex;
     list-style-type: none;
     margin-bottom: 0;
     align-items: center;
 }
+
 .page-ul li {
     padding-left: 10px;
 }
+
 .pagination-main {
     background: #1E1F22;
     border-radius: 5px;
     padding: 10px 20px;
     margin-top: 10px;
 }
+
 .page-show {
     margin-bottom: 0;
     padding-right: 14px;
 }
+
 .page-sel {
     background: #202020 !important;
     border: 1px solid #2F3032 !important;
@@ -119,37 +364,59 @@ tr.managecontact-tr th {
     color: #fff !important;
     padding: 8px 30px 8px 10px !important;
 }
+
 .prevbtn {
     color: #FFFFFF !important;
 }
+
 .page-ul li .num-btn:hover {
     border: none;
     outline: none;
     background: #F26339;
     border-radius: 4px;
 }
-.page-ul li .num-btn{
+
+.page-ul li .num-btn {
     color: #fff;
     height: 30px;
     width: 30px;
     padding: 0;
 }
+
 .page-ul li .btn:focus {
     box-shadow: none !important;
     border: 0 !important;
     outline: 0 !important;
 }
 
-.page-ul li .nextbtn
-{
+.page-ul li .nextbtn {
     color: #189946 !important;
 }
+
 .prevbtn:hover {
     color: #c3c0c0 !important;
 }
+
 .table.manage-contact-table tbody tr td:last-child {
     cursor: pointer;
 }
-.active-btn{
+
+.active-btn {
     color: #189946 !important;
 }
+
+/* ------------------------Mangecontact end---------------------- */
+/* ------------------------Reports start---------------------- */
+
+.filter-report input {
+    margin-left: 40px;
+}
+.export-xls {
+    border: 1px solid #189946 !important;
+    border-radius: 5px !important;
+    width: 137px !important;
+    color: #fff !important;
+    background-color: #000 !important;
+}
+
+/* ------------------------Reports end---------------------- */

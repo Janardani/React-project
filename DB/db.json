@@ -135,19 +135,6 @@
       "id": 12
     },
     {
-      "Name": "Sujadevi",
-      "JobTitle": "Web designer",
-      "MobileNumber": "865479321",
-      "Emailid": "sujadevi@gmail.com",
-      "org": "educationalorgnaiton.com",
-      "website": "https://www.education.com/nfc...",
-      "fb": "https://www.facebook.com/Thomas",
-      "insta": "https://www.instagram.com/Thomas/",
-      "linkedin": "https://www.linked.com/Thomas/",
-      "secnum": "7894561230",
-      "id": 13
-    },
-    {
       "Name": "Mani kandan",
       "JobTitle": "Animation",
       "MobileNumber": "7786398451",
@@ -640,6 +627,74 @@
       "linkedin": "",
       "secnum": "",
       "id": 52
+    },
+    {
+      "Name": "try one",
+      "JobTitle": "asfd",
+      "MobileNumber": 123456789,
+      "Emailid": "dfsdfs",
+      "id": 53
+    },
+    {
+      "Name": "try two",
+      "JobTitle": "hdkfhsdg",
+      "MobileNumber": "02466+8",
+      "Emailid": "dljhdfljhdfih",
+      "id": 54
+    },
+    {
+      "Name": "try one",
+      "JobTitle": "asfd",
+      "MobileNumber": 123456789,
+      "Emailid": "dfsdfs",
+      "id": 55
+    },
+    {
+      "Name": "try two",
+      "JobTitle": "hdkfhsdg",
+      "MobileNumber": "02466+8",
+      "Emailid": "dljhdfljhdfih",
+      "id": 56
+    },
+    {
+      "Name": "another one",
+      "JobTitle": "anbsd",
+      "MobileNumber": 123456789,
+      "id": 57
+    },
+    {
+      "Name": "another two",
+      "JobTitle": "sdgsdgsgsdg",
+      "MobileNumber": 123456789,
+      "website": "fgdfhdf",
+      "id": 58
+    },
+    {
+      "Name": "jaanu",
+      "JobTitle": "react js",
+      "MobileNumber": 123456789,
+      "id": 59
+    },
+    {
+      "Name": "janani",
+      "JobTitle": "react native",
+      "MobileNumber": 123456789,
+      "website": "fgdfhdf",
+      "id": 60
+    },
+    {
+      "Name": "try one",
+      "JobTitle": "asfd",
+      "MobileNumber": 123456789,
+      "Emailid": "dfsdfs",
+      "id": 61
+    },
+    {
+      "Name": "try two",
+      "JobTitle": "hdkfhsdg",
+      "MobileNumber": "02466+8",
+      "Emailid": "dljhdfljhdfih",
+      "id": 62
     }
   ],
   "reactDonutChartdata": [
@@ -662,6 +717,50 @@
     {
       "label": "Central California",
       "value": 786
+    }
+  ],
+  "reports": [
+    {
+      "id": 1,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Newyork City"
+    },
+    {
+      "id": 2,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Newyork City"
+    },
+    {
+      "id": 3,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Newyork City"
+    },
+    {
+      "id": 4,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Newyork City"
+    },
+    {
+      "id": 5,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Newyork City"
+    },
+    {
+      "id": 6,
+      "name": "mini",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Bangalore"
     }
   ]
 }

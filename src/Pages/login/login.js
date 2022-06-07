@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import './Login.css'
 import { emailValidator, passwordValidator, passwordValidator1, passwordValidator2 } from '../../Shared/Passwordregexp'
 import axios from 'axios';
+import whiteeye from '../../Assets/images/whiteeye.png'
+import crosseye from '../../Assets/images/crosseye.png'
 
 
 function Login() {
@@ -29,6 +31,8 @@ function Login() {
         const result = async () => { axios.get("http://localhost:8001/User").then(res => setuserdata(res.data)); }
         result();
         if (sessionStorage.getItem("sesemail")) {
+          
+            
             navigate('/');
         }
         else {
@@ -66,7 +70,7 @@ function Login() {
                 userdata.filter(userdata => {
                     if ((userdata.email == data.email) && (userdata.password == data.password)) {
                         sessionStorage.setItem("sesemail", userdata.id);
-                        console.log("userdata", userdata.id);
+                        localStorage.setItem("dashboard page",1);
                         navigate("/")
                     }
                     else {
@@ -102,14 +106,14 @@ function Login() {
                         <form onSubmit={loginsubmit}>
                             <div className="form-group">
                                 <label htmlFor="usr" className="email-para">Email Id</label>
-                                <input type="text" className="form-control email-inp email-inp-one" id="usr" name="email" value={data.email} onChange={valuechange} />
+                                <input type="text" autoComplete='off' className="form-control email-inp email-inp-one" id="usr" name="email" value={data.email} onChange={valuechange} />
                                 {emailerrormsg && <p className='email-error-msg'>{emailerrormsg}</p>}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="usr" className="email-para">Password</label>
                                 <div className='email-head' >
-                                    <input type={eye ? 'password' : 'text'} className="form-control email-inp email-inp-two " id="password" name="password" value={data.password} onChange={valuechange} />
-                                    <div className='email-password' onClick={passwordshow}></div>
+                                    <input type={eye ? 'password' : 'text'} autoComplete='off' className="form-control email-inp email-inp-two " id="password" name="password" value={data.password} onChange={valuechange} />
+                                    <div className='email-password' onClick={passwordshow}><img src={eye ? whiteeye : crosseye} /></div>
                                     {passworderrormsg && <p className='password-error-msg'>{passworderrormsg}</p>}
                                 </div>
                             </div>

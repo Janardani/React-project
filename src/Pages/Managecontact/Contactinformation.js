@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import './Contactinformation.css'
+import "./Managecontact.css";
 import { useNavigate } from 'react-router-dom';
+import Dashboard from '../../Common/Dashboard';
 import in1 from '../../Assets/images/1in.png'
 import in2 from '../../Assets/images/2in.png'
 import in3 from '../../Assets/images/3in.png'
@@ -16,21 +17,31 @@ import in11 from '../../Assets/images/11in.png'
 import backbtn from '../../Assets/images/backbtn.png'
 
 
+
 const Contactinformation = () => {
     const [userdata, setuserdata] = useState([]);
     const navigate = useNavigate();
     const id = localStorage.getItem("view contact");
     useEffect(() => {
+        localStorage.setItem("dashboard page", 2);
+        if(sessionStorage.getItem("sesemail"))
+        {
+          navigate('/Contactinformation');
+        }
+        else{
+          navigate('/Login')
+        }
         const result = async () => { axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
         result();
     }, []);
     const backfuction = () =>
     {
-        localStorage.clear("view contact");
+        localStorage.removeItem("view contact");
         navigate('/Managecontact')
     }
-  
+    var title = "Manage Contact"
   return (
+      <Dashboard title={title}>
         <div>
            <div className='contact-main d-flex justify-content-between align-items-baseline'>
             <h3 className='contactdetail'>Contact information</h3>
@@ -118,6 +129,7 @@ const Contactinformation = () => {
                 </div>
             </div>
         </div>
+        </Dashboard>
     )
    
 }
