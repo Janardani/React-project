@@ -7,12 +7,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { emailValidator, NumberValidator } from '../../Shared/Passwordregexp'
 import Dashboard from '../../Common/Dashboard';
 import { AiOutlineUser } from 'react-icons/ai';
-import { BsTelephoneFill,BsGlobe } from 'react-icons/bs';
+import { BsTelephoneFill, BsGlobe } from 'react-icons/bs';
 import { GiOrganigram } from 'react-icons/gi';
-import {IoBagSharp} from 'react-icons/io5';
-import {GoMail} from 'react-icons/go';
-import {FaFacebookF,FaInstagram,FaLinkedinIn} from 'react-icons/fa'
+import { IoBagSharp } from 'react-icons/io5';
+import { GoMail } from 'react-icons/go';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import { IconContext } from 'react-icons';
+import close from '../../Assets/images/close.png'
 
 const Addcontact = () => {
     const notify = () => toast("Please fill required field");
@@ -22,6 +23,13 @@ const Addcontact = () => {
     const [numeonerror, setnumoneerror] = useState('');
     const [numtwoerror, setnumtwoerror] = useState('');
     var newflag = true;
+
+   // add contact field
+    const [submit, seSubmit] = useState([])
+    const [newlabel, setnewlabel] = useState('');
+    const [flag, setflag] = useState(false);
+    const [extradata, setextradata] = useState({values:['']})
+
     const [contactdata, setcontactdata] = useState({
         Name: "",
         JobTitle: "",
@@ -77,7 +85,16 @@ const Addcontact = () => {
             }
 
             if (newflag) {
-                axios.post(`http://localhost:8001/managecontact`, contactdata);
+           var arraycontact = [contactdata]
+            // console.log("contactdata",arraycontact);
+            // console.log("extradata",extradata.values);
+             var result = arraycontact.concat(extradata);
+          
+            // result.map(value=>
+            //     {
+            //         console.log("result",value);
+            //     })
+                axios.post(`http://localhost:8001/managecontact`, result);
                 navigate('/Managecontact');
             }
 
@@ -102,7 +119,49 @@ const Addcontact = () => {
     const removephoto = () => {
         setupload("https://png.pngitem.com/pimgs/s/508-5087336_person-man-user-account-profile-employee-profile-template.png")
     }
-var title = "Manage Contact"
+    var title = "Manage Contact"
+
+    // add contact field
+
+
+    const handlelabel = (e) => {
+        setnewlabel(e.target.value);
+    }
+    const savelabel = () => {
+
+        submit.push(newlabel)
+        setextradata(e =>({values:[...e.values,'']}))
+      
+        setflag(true)
+
+    }
+    const labelchange = (e,key) =>{
+        let values = [...extradata.values]
+        values[key] = e.target.value;
+        setextradata({values})
+        console.log("Extra data", extradata.values);
+
+    }
+    const deletelabel = (value) => {
+        submit.splice(value, 1);
+        console.log("delete array", submit);
+        console.log("delete value", value);
+        setflag(true)
+    }
+    useEffect(() => {
+
+        if (flag) { setflag(false) }
+    }, [savelabel])
+
+
+
+
+
+
+
+
+
+
     return (
         <>
             <Dashboard title={title}>
@@ -114,7 +173,7 @@ var title = "Manage Contact"
                 <div className='add-contact'>
                     <div className='d-flex justify-content-between add-contact-add'>
                         <p className='add-edit'>Add/Edit Form</p>
-                        <button className='btn add-field' >Add Field</button>
+                        <button className='btn add-field' data-bs-toggle="modal" data-bs-target="#myModal">Add Field</button>
                     </div>
                     <div className='apex d-flex align-items-center'>
                         <div className='upload-img'>
@@ -128,9 +187,9 @@ var title = "Manage Contact"
                     <div className='basic-information'>
                         <p className='basic-info add-edit add-contact-add'>Basic Information</p>
 
-                      <IconContext.Provider value={{ color: ' #898d99', size: '20px' }}>
-                      <div className='info-input-main row'>
-                            {/* {userdata.map((value) => {
+                        <IconContext.Provider value={{ color: ' #898d99', size: '20px' }}>
+                            <div className='info-input-main row'>
+                                {/* {userdata.map((value) => {
                             return (
                                 <>{value.label.map((e, key) => {
                                     return (
@@ -143,117 +202,176 @@ var title = "Manage Contact"
 
                             )
                         })} */}
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label htmlFor='name'>Name <span className='req'>*</span></label>
-                                <div className='custom-input'>
-                                    <input id='name' autoComplete='off' type="text" name='Name' value={contactdata.Name} onChange={condatafun} placeholder="Enter name" required></input>
-                                    <span className='add-img'>
-                                        <AiOutlineUser />
-                                    </span>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label htmlFor='name'>Name <span className='req'>*</span></label>
+                                    <div className='custom-input'>
+                                        <input id='name' autoComplete='off' type="text" name='Name' value={contactdata.Name} onChange={condatafun} placeholder="Enter name" required></input>
+                                        <span className='add-img'>
+                                            <AiOutlineUser />
+                                        </span>
+
+                                    </div>
 
                                 </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Job Title </label>
+                                    <div className='custom-input'>
+                                        <input type="text" autoComplete='off' name='JobTitle' value={contactdata.JobTitle} onChange={condatafun} placeholder="Enter Job Title"></input>
+                                        <span className='add-img'>
+                                            <IoBagSharp />
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Mobile Number <span className='req'>*</span></label>
+                                    <div className='custom-input'>
+                                        <input type="text" autoComplete='off' name='MobileNumber' value={contactdata.MobileNumber} onChange={condatafun} placeholder="Enter Phone Number"></input>
+                                        <span className='add-img'>
+                                            <BsTelephoneFill />
+                                        </span>
+
+                                    </div>
+
+                                    {numeonerror && <p className='email-error-msg'>{numeonerror}</p>}
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Email id</label>
+                                    <div className='custom-input'>
+                                        <input type="text" autoComplete='off' name='Emailid' value={contactdata.Emailid} onChange={condatafun} placeholder="Enter Email id" />
+                                        <span className='add-img'>
+                                            <GoMail />
+                                        </span>
+
+                                    </div>
+                                    {emailerror && <p className='email-error-msg'>{emailerror}</p>}
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Organization</label>
+                                    <div className='custom-input'>  <input type="text" name='org' autoComplete='off' value={contactdata.org} onChange={condatafun} placeholder="Enter Organization"></input>
+                                        <span className='add-img'>
+                                            <GiOrganigram />
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Website</label>
+                                    <div className='custom-input'>
+                                        <input type="text" name='website' autoComplete='off' value={contactdata.website} onChange={condatafun} placeholder="Enter Website"></input>
+                                        <span className='add-img'>
+                                            <BsGlobe />
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Facebook</label>
+                                    <div className='custom-input'>
+                                        <input type="text" name='fb' autoComplete='off' value={contactdata.fb} onChange={condatafun} placeholder="Enter facebook link"></input>
+                                        <span className='add-img'>
+                                            <FaFacebookF />
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Instagram</label>
+                                    <div className='custom-input'>
+                                        <input type="text" name='insta' autoComplete='off' value={contactdata.insta} onChange={condatafun} placeholder="Enter Instagram link"></input>
+                                        <span className='add-img'>
+                                            <FaInstagram />
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Linkedin</label>
+                                    <div className='custom-input'>
+                                        <input type="text" name='linkedin' autoComplete='off' value={contactdata.linkedin} onChange={condatafun} placeholder="Enter Linkedin link"></input>
+                                        <span className='add-img'>
+                                            <FaLinkedinIn />
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Secondary  Phone Number</label>
+                                    <div className='custom-input'>
+                                        <input type="text" name='secnum' autoComplete='off' value={contactdata.secnum} onChange={condatafun} placeholder="Enter Phone Number"></input>
+                                        <span className='add-img'>
+                                            <BsTelephoneFill />
+                                        </span>
+
+                                    </div>
+
+                                    {numtwoerror && <p className='email-error-msg'>{numtwoerror}</p>}
+                                </div>
+                                {submit ? (
+                                    submit.map((e, k) => {
+                                        return (
+                                            <div className='info-input d-flex flex-column col-lg-4' key={k}>
+                                                <label>{e}</label>
+                                                <div className='custom-input flex-row'>
+                                                    {extradata.values.map((value,key)=>{
+                                                        if(k == key)
+                                                        {
+                                                            return(
+                                                                <>
+                                                                 <input autoComplete='off' type="text" name={value} placeholder={`Enter ${e}`} value={value || ""} onChange={(e)=>labelchange(e,key)} key={key} />
+                                                      
+                                                                </>
+                                                            )
+                                                        }
+                                                    })}
+                                                    
+                                                     <span className='delete-label' onClick={() => deletelabel(k)}><img src={close} />
+                                                     </span>
+                                                </div>
+                                            </div>
+                                        )
+
+                                    })
+                                ) : <>
+                                    <p>null</p>
+                                </>}
 
                             </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Job Title </label>
-                                <div className='custom-input'>
-                                    <input type="text" autoComplete='off' name='JobTitle' value={contactdata.JobTitle} onChange={condatafun} placeholder="Enter Job Title"></input>
-                                    <span className='add-img'>
-                                       <IoBagSharp />
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Mobile Number <span className='req'>*</span></label>
-                                <div className='custom-input'>
-                                    <input type="text" autoComplete='off' name='MobileNumber' value={contactdata.MobileNumber} onChange={condatafun} placeholder="Enter Phone Number"></input>
-                                    <span className='add-img'>
-                                        <BsTelephoneFill />
-                                    </span>
-
-                                </div>
-
-                                {numeonerror && <p className='email-error-msg'>{numeonerror}</p>}
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Email id</label>
-                                <div className='custom-input'>
-                                    <input type="text" autoComplete='off' name='Emailid' value={contactdata.Emailid} onChange={condatafun} placeholder="Enter Email id" />
-                                    <span className='add-img'>
-                                       <GoMail />
-                                    </span>
-
-                                </div>
-                                {emailerror && <p className='email-error-msg'>{emailerror}</p>}
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Organization</label>
-                                <div className='custom-input'>  <input type="text" name='org' autoComplete='off' value={contactdata.org} onChange={condatafun} placeholder="Enter Organization"></input>
-                                    <span className='add-img'>
-                                        <GiOrganigram />
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Website</label>
-                                <div className='custom-input'>
-                                    <input type="text" name='website' autoComplete='off'  value={contactdata.website} onChange={condatafun} placeholder="Enter Website"></input>
-                                    <span className='add-img'>
-                                       <BsGlobe />
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Facebook</label>
-                                <div className='custom-input'>
-                                    <input type="text" name='fb' autoComplete='off' value={contactdata.fb} onChange={condatafun} placeholder="Enter facebook link"></input>
-                                    <span className='add-img'>
-                                       <FaFacebookF />
-                                    </span>
-                                </div>
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Instagram</label>
-                                <div className='custom-input'>
-                                    <input type="text" name='insta' autoComplete='off' value={contactdata.insta} onChange={condatafun} placeholder="Enter Instagram link"></input>
-                                    <span className='add-img'>
-                                     <FaInstagram />
-                                    </span>
-
-                                </div>
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Linkedin</label>
-                                <div className='custom-input'>
-                                    <input type="text" name='linkedin' autoComplete='off' value={contactdata.linkedin} onChange={condatafun} placeholder="Enter Linkedin link"></input>
-                                    <span className='add-img'>
-                                       <FaLinkedinIn />
-                                    </span>
-
-                                </div>
-                            </div>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Secondary  Phone Number</label>
-                                <div className='custom-input'>
-                                    <input type="text" name='secnum' autoComplete='off' value={contactdata.secnum} onChange={condatafun} placeholder="Enter Phone Number"></input>
-                                    <span className='add-img'>
-                                    <BsTelephoneFill />
-                                    </span>
-
-                                </div>
-
-                                {numtwoerror && <p className='email-error-msg'>{numtwoerror}</p>}
-                            </div>
-
-                        </div>
-                      </IconContext.Provider>
+                        </IconContext.Provider>
                         <div className='contactfrom-btn d-flex justify-content-center'>
                             <button className='btn add-update' onClick={contactupdate}>Update</button>
                             <button className='btn add-cancel' onClick={() => navigate("/Managecontact")}>Cancel</button>
                         </div>
                     </div>
                 </div>
+                <div className="modal" id="myModal">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+
+                            {/* <!-- Modal Header --> */}
+                            <div class="modal-header">
+                                <h4 className="modal-title">Add Field</h4>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            {/* <!-- Modal body --> */}
+                            <div className="modal-body">
+                                <label className="form-label modal-label">Label Name</label>
+                                <input type='text' placeholder='Enter label name' onChange={handlelabel} value={newlabel} className="form-control modal-input"></input>
+                            </div>
+
+                            {/* <!-- Modal footer --> */}
+                            <div className="modal-footer justify-content-between">
+                                <button type="button" onClick={savelabel} data-bs-dismiss="modal" className='btn modal-save'>Save</button>
+                                <button type="button" className="btn  modal-cancel" data-bs-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
             </Dashboard>
+
+
+
+
         </>
     )
 }

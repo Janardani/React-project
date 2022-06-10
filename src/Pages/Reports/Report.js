@@ -84,7 +84,7 @@ const shownItems = userdata.slice(indexofFirstValue, indexofLastValue);
         <h3 className='contactdetail'>List of Reports</h3>
   
      
-        <select class="form-select export-xls" aria-label="Default select example" onClick={ExportToExcel}>
+        <select className="form-select export-xls" aria-label="Default select example" onClick={ExportToExcel}>
         <option style={{background: "#000000"}}>   Export As</option>
            <option style={{background: "#000000"}}>xls</option>
            <option style={{background: "#000000"}}>pdf</option>

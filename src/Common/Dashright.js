@@ -7,11 +7,25 @@ import Dashboard from './Dashboard';
 
 function Dashright() {
   const [userdata, setuserdata] = useState([{ label: "", value: "" }]);
+  const [reportdata, setreportdata] = useState([]);
+  const [filtername, setfiltername] = useState("")
   useEffect(() => {
-    const result = async () => { axios.get("http://localhost:8001/reactDonutChartdata").then(res => setuserdata(res.data)); }
+    const result = async () => { await axios.get("http://localhost:8001/reactDonutChartdata").then(res => setuserdata(res.data)); }
     result();
+   
+   
     localStorage.setItem("dashboard page", 1);
   }, []);
+
+  useEffect(()=>
+  {
+  const fetchData=()=>{
+    axios.get("http://localhost:8001/reports").then(res => setreportdata(res.data));
+  }
+  fetchData();
+    console.log("reportdata",reportdata);
+
+  },[])
   const reactDonutChartBackgroundColor = [
     "#CA9C31",
     "#854095",
@@ -22,7 +36,56 @@ function Dashright() {
   const reactDonutChartInnerRadius = 0.5;
   const reactDonutChartSelectedOffset = 0.04;
   let reactDonutChartStrokeColor = "#000";
-var title = "Dashboard"
+var title = "Dashboard";
+
+// filter
+
+const filterchange = (e) =>
+{
+  setfiltername(e.target.value)
+}
+
+//    pagination
+const [currentPage, setCurrentPage] = useState(1);
+const [itemsPerPage, setItemsPerPage] = useState(10);
+const indexofLastValue = currentPage * itemsPerPage;
+const indexofFirstValue = indexofLastValue - itemsPerPage;
+const shownItems = reportdata.slice(indexofFirstValue, indexofLastValue);
+  const pages = [];
+    for (let i = 1; i <= Math.ceil(reportdata.length / itemsPerPage); i++) {
+        pages.push(i)
+    }
+    const handlePage = (pageId) => {
+        setCurrentPage(pageId + 1)
+    }
+    const handlePageSize = (e) => {
+        setItemsPerPage(e.target.value);
+    }
+
+
+    const handlePrev = () => {
+        setCurrentPage(currentPage - 1)
+        if ((currentPage - 1) % limit == 0) {
+            setmaxlimitNumber(maxlimitNumber - limit);
+            setminlimitNumber(minlimitNumber - limit);
+        }
+    }
+    const handleNext = () => {
+        setCurrentPage(currentPage + 1);
+        if ((currentPage + 1) > maxlimitNumber) {
+            setmaxlimitNumber(maxlimitNumber + limit)
+            setminlimitNumber(minlimitNumber + limit)
+        }
+    }
+
+    const limit = 3;
+    const [minlimitNumber, setminlimitNumber] = useState(1);
+    const [maxlimitNumber, setmaxlimitNumber] = useState(3);
+
+    let incrementDots = null;
+    if (pages.length > maxlimitNumber) {
+        incrementDots = <li onClick={handleNext}>...</li>
+    }
   return (
     <Dashboard title={title}>
       <div className='d-flex justify-content-between'>
@@ -64,7 +127,7 @@ var title = "Dashboard"
             <div className='search-div d-flex align-items-baseline'>
               <p className='search-para'>Search</p>
               <div className="form-group">
-                <input type="email" className="form-control search-inp" aria-describedby="emailHelp" placeholder="Search By User Name..." />
+                <input type="email" className="form-control search-inp" aria-describedby="emailHelp" placeholder="Search By User Name..." value={filtername} onChange={filterchange} />
               </div>
             </div>
             <table className='table num-of-contact'>
@@ -76,33 +139,61 @@ var title = "Dashboard"
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>01</td>
-                  <td>John Adam</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>02</td>
-                  <td>Thomas Jefferson</td>
-                  <td>08</td>
-                </tr>
-                <tr>
-                  <td>03</td>
-                  <td>Douglas Macaurthur</td>
-                  <td>15</td>
-                </tr>
-                <tr>
-                  <td>04</td>
-                  <td>Jackie Robinson</td>
-                  <td>06</td>
-                </tr>
-                <tr>
-                  <td>05</td>
-                  <td>Benjamin Franklin</td>
-                  <td>09</td>
-                </tr>
+               {
+                 reportdata.length?(shownItems.filter(val=>{
+                  if(filtername == " ")
+                  {
+                    return val;
+                  }
+                  else if(val.name.toLowerCase().includes(filtername.toLowerCase()))
+                  {
+                    return val;
+                  }
+                }).map((data,key) =>{
+                  return(
+                    <tr key={key}>
+                    <td>{data.id}</td>
+                    <td>{data.name}</td>
+                    <td>{data.saves}</td>
+                  </tr>
+                  )
+                }
+               
+                )
+                ):(null)
+               }
               </tbody>
             </table>
+            <div className='pagination-main d-flex justify-content-between align-items-center'>
+                <div className='d-flex align-items-center'>
+                    <p className='page-show'>Show</p>
+                    <select onChange={handlePageSize} value={itemsPerPage} className="form-select page-sel">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+
+                <ul className='page-ul'>
+                    <li><button onClick={handlePrev} disabled={currentPage == pages[0] ? true : false} className="btn prevbtn">Prev</button></li>
+                    {
+                        pages.map((e, index) => {
+
+                            if ((e <= maxlimitNumber) && (e >= minlimitNumber)) {
+                                return (
+                                    <>
+                                        <li key={index}  ><button id={e} onClick={() => { handlePage(index) }} className={currentPage == e ? "btn num-btn active-btn" : "btn num-btn"} >{e}</button></li>
+                                    </>
+
+                                )
+                            }
+
+                        })
+                    }
+                    {incrementDots}
+                    <li><button onClick={handleNext} disabled={currentPage == pages.length ? true : false} className="btn prevbtn nextbtn">Next</button></li>
+                </ul>
+            </div>
           </div>
         </div>
       </div>

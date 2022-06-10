@@ -150,6 +150,37 @@ span.req {
 /* .add-img svg {
     fill: #898d99;
 } */
+
+
+.modal-content {
+    margin-top: 200px;
+    color: #000;
+}
+.modal-cancel {
+    border: 1px solid #807F7F !important;
+    border-radius: 5px !important;
+    padding-inline: 40px !important;
+}
+.modal-save {
+    background: #F26339 !important;
+    border: 1px solid #F26339 !important;
+    border-radius: 5px !important;
+    padding-inline: 40px !important;
+    color: #fff !important;
+}
+.modal-label {
+    color: #6A6A6A;
+    font-size: 16px;
+}
+.delete-label img {
+    margin-left: 15px;
+    margin-top: 16px;
+}
+.delete-label {
+    width: 47px;
+    background: #D1401B;
+    border-radius: 0px 5px 5px 0px;
+}
 /* ------------------------Add Contact end---------------------- */
 /* ------------------------Contact information start---------------------- */
 .inf-img {

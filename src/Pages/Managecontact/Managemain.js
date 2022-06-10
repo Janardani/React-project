@@ -17,8 +17,8 @@ function Managemain() {
     const [filterjob, setfilterjob] = useState('');
     const [filternum, setfilternum] = useState('');
     const [filteremail, setfilteremail] = useState('');
-   
-
+var arrayone =[];
+var arraytwo=[];
 
     useEffect(() => {
         localStorage.setItem("dashboard page", 2);
@@ -30,9 +30,30 @@ function Managemain() {
         }
         const result = async () => { axios.get("http://localhost:8001/managecontact").then(res => setuserdata(res.data)); }
         result();
-
-
+       
     }, []);
+
+    userdata.map((eas,key)=>
+        {
+           
+            // console.log("userdata",eas);
+            eas.map((value,item) =>{
+            if(item == 0)
+            {
+               arrayone.push(value)
+                console.log("one",arrayone);
+            
+        }
+    else if (item==1){
+                arraytwo.push(value.values);
+                // console.log("two",arraytwo);
+            }
+            })
+        })
+
+     console.log("one",arrayone);
+
+
     const viewcontact = (val) => {
         localStorage.setItem("view contact", val);
         navigate('/Contactinformation');
@@ -55,9 +76,10 @@ function Managemain() {
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const indexofLastValue = currentPage * itemsPerPage;
     const indexofFirstValue = indexofLastValue - itemsPerPage;
-    const shownItems = userdata.slice(indexofFirstValue, indexofLastValue);
+    const shownItems = arrayone.slice(indexofFirstValue, indexofLastValue);
+    // console.log(shownItems);
     const pages = [];
-    for (let i = 1; i <= Math.ceil(userdata.length / itemsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(arrayone.length / itemsPerPage); i++) {
         pages.push(i)
     }
     const handlePage = (pageId) => {
@@ -132,7 +154,7 @@ function Managemain() {
                 const json = xlsx.utils.sheet_to_json(worksheet);
                 json.forEach(data =>{
                   
-                         axios.post(`http://localhost:8001/managecontact`, data)
+                         axios.post(`http://localhost:8001/managecontact`, data);
                 })
             };
             reader.readAsArrayBuffer(e.target.files[0]);
@@ -181,22 +203,26 @@ function Managemain() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {shownItems.filter(val =>
-                                        val.Name.toLowerCase().includes(filtername.toLowerCase()) && val.JobTitle.toLowerCase().includes(filterjob.toLowerCase())  && val.Emailid.toLowerCase().includes(filteremail.toLowerCase())
-                                    ).map((filteredName, key) => {
-
-                                        return (filteredName)
-                                    }).map((value, key) => {
+                                    {shownItems.filter(val =>{
+                                        if((filtername=='') && (filterjob=='')&&(filteremail==''))
+                                        {
+                                            return val;
+                                        }
+                                      else if ( (val.Name).toLowerCase().includes(filtername.toLowerCase()) && (val.JobTitle).toLowerCase().includes(filterjob.toLowerCase())  && (val.Emailid).toLowerCase().includes(filteremail.toLowerCase()))
+                                      {
+                                          return (val);
+                                      }
+                                     }).map((value, key) => {
                                         return (
                                             <tr key={key}>
-                                                <td>{value.id}</td>
+                                                <td>{key+1}</td>
                                                 <td><a className='con-name' onClick={() => clickdashboard(value.id)}>{value.Name}</a></td>
                                                 <td>{value.JobTitle}</td>
                                                 <td>{value.MobileNumber}</td>
                                                 <td>{value.Emailid}</td>
                                                 <td>
                                                     <div className='icon-div d-flex'>
-                                                        <div> <img src={greeneye} alt="logo here" onClick={() => viewcontact(value.id)} /></div>
+                                                        <div> <img src={greeneye} alt="logo here" onClick={() => viewcontact(key+1)} /></div>
                                                         <div><img src={pen} alt="logo here" onClick={() => editcontact(value.id)} /></div>
                                                         <div><img src={trash} alt="logo here" onClick={() => deletecontact(value.id)} /></div>
                                                     </div>
