@@ -1,126 +1,230 @@
 {
   "User": [
     {
-      "email": "janardani@gmail.com",
+      "name": "Chris Hemsworth",
+      "email": "christ@gmail.com",
       "password": "Jana@1234",
       "id": 1
     },
     {
-      "email": "abinayasri@gmail.com",
-      "password": "Abinaya@2020",
+      "name": "Janardani",
+      "email": "janardani@gmail.com",
+      "password": "Jana@1234",
       "id": 2
     },
     {
+      "name": "Abinaya sri",
+      "email": "abinayasri@gmail.com",
+      "password": "Abinaya@2020",
+      "id": 3
+    },
+    {
+      "name": "Suja devi",
       "email": "sujadevi@gmail.com",
       "password": "suja@123",
-      "id": 3
+      "id": 4
     }
   ],
   "managecontact": [
-    [
-      {
-        "Name": "dfgdfgdf",
-        "JobTitle": "fgdfgdfg",
-        "MobileNumber": "1234567890",
-        "Emailid": "",
-        "org": "",
-        "website": "",
-        "fb": "",
-        "insta": "",
-        "linkedin": "",
-        "secnum": ""
-      },
-      {
-        "values": [
-          "value",
-          ""
-        ]
-      }
-    ],
-    [
-      {
-        "Name": "jana",
-        "JobTitle": "fgdfgdfg",
-        "MobileNumber": "1234567890",
-        "Emailid": "",
-        "org": "",
-        "website": "",
-        "fb": "",
-        "insta": "",
-        "linkedin": "",
-        "secnum": ""
-      },
-      {
-        "values": [
-          "value",
-          ""
-        ]
-      }
-    ],
-    [
-      {
-        "Name": "jana",
-        "JobTitle": "fgdfgdfg",
-        "MobileNumber": "1234567890",
-        "Emailid": "",
-        "org": "",
-        "website": "",
-        "fb": "",
-        "insta": "",
-        "linkedin": "",
-        "secnum": ""
-      },
-      {
-        "values": [
-          "value",
-          "second values",
-          ""
-        ]
-      }
-    ],
-    [
-      {
-        "Name": "mini",
-        "JobTitle": "fgdfgdfg",
-        "MobileNumber": "1234567890",
-        "Emailid": "",
-        "org": "",
-        "website": "",
-        "fb": "",
-        "insta": "",
-        "linkedin": "",
-        "secnum": ""
-      },
-      {
-        "values": [
-          "value",
-          "second values",
-          "third",
-          ""
-        ]
-      }
-    ]
-  ],
-  "reactDonutChartdata": [
     {
-      "label": "Washington",
-      "value": 78
+      "id": 1,
+      "Name": "jana",
+      "JobTitle": "react",
+      "MobileNumber": "0987654321",
+      "Emailid": "janardani@gmail.com",
+      "newlabel": [
+        {
+          "label": "sec",
+          "value": 9087
+        },
+        {
+          "label": "twitter",
+          "value": "janardanitwit"
+        },
+        {
+          "label": "label-1",
+          "value": "vimal"
+        }
+      ]
     },
     {
-      "label": "Los Angeles",
-      "value": 75
+      "Name": "janardani",
+      "JobTitle": "react",
+      "MobileNumber": "0123654789",
+      "Emailid": "",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "label-1",
+          "value": "one"
+        },
+        {
+          "label": "label-2",
+          "value": "two"
+        },
+        {
+          "label": "label-3",
+          "value": "three"
+        }
+      ],
+      "id": 2
     },
     {
-      "label": "North Coast",
-      "value": 34
+      "Name": "vimal",
+      "JobTitle": "react developer",
+      "MobileNumber": "8974563210",
+      "Emailid": "vimal@gmail.com",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "sec number",
+          "value": "2103654798"
+        }
+      ],
+      "id": 3
     },
     {
-      "label": "Great Basin",
-      "value": 786
+      "Name": "panneer selvi",
+      "JobTitle": "angular",
+      "MobileNumber": "7894561230",
+      "Emailid": "",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "add num",
+          "value": "0123654789"
+        },
+        {
+          "label": "sec name",
+          "value": "selvi"
+        }
+      ],
+      "id": 4
     },
     {
-      "label": "Central California",
-      "value": 786
+      "Name": "mythili",
+      "JobTitle": "angular",
+      "MobileNumber": "0123654789",
+      "Emailid": "mythili@gmail.com",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [],
+      "id": 5
+    },
+    {
+      "Name": "Abinaya",
+      "JobTitle": "Testing",
+      "MobileNumber": "0123654789",
+      "Emailid": "abinaya@gmail.com",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "Another name",
+          "value": "Abi"
+        },
+        {
+          "label": "Secoundary number",
+          "value": "0123654789"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "Name": "Harini sreee",
+      "JobTitle": "software developer",
+      "MobileNumber": "0123654789",
+      "Emailid": "harini@gmail.com",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "label-1",
+          "value": "harinione"
+        },
+        {
+          "label": "label-2",
+          "value": "harinitwo"
+        },
+        {
+          "label": "label-3",
+          "value": "harinithree"
+        },
+        {
+          "label": "label-4",
+          "value": "harinifour"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "Name": "janardani kalidass",
+      "JobTitle": "react",
+      "MobileNumber": "0123654789",
+      "Emailid": "janardani@gmail.com",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "label-1",
+          "value": "jana one"
+        },
+        {
+          "label": "label-2",
+          "value": "jana two"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "Name": "jayasree",
+      "JobTitle": "Software developer",
+      "MobileNumber": "7896541230",
+      "Emailid": "jayasree@gmail.com",
+      "org": "",
+      "website": "",
+      "fb": "",
+      "insta": "",
+      "linkedin": "",
+      "secnum": "",
+      "newlabel": [
+        {
+          "label": "label-1",
+          "value": "one"
+        }
+      ],
+      "id": 9
     }
   ],
   "reports": [
@@ -129,42 +233,252 @@
       "name": "janardani",
       "saves": 10,
       "taps": 20,
-      "Geo": "Newyork City"
+      "Geo": "Washington"
     },
     {
       "id": 2,
-      "name": "janardani",
+      "name": "vimal",
       "saves": 10,
-      "taps": 20,
-      "Geo": "Newyork City"
+      "taps": 30,
+      "Geo": "Los Angeles"
     },
     {
       "id": 3,
-      "name": "janardani",
+      "name": "aashiq",
       "saves": 10,
-      "taps": 20,
-      "Geo": "Newyork City"
+      "taps": 10,
+      "Geo": "North Coast"
     },
     {
       "id": 4,
-      "name": "janardani",
+      "name": "parathaman",
       "saves": 10,
-      "taps": 20,
-      "Geo": "Newyork City"
+      "taps": 50,
+      "Geo": "Great Basin"
     },
     {
       "id": 5,
-      "name": "janardani",
+      "name": "panneer selvi",
       "saves": 10,
-      "taps": 20,
-      "Geo": "Newyork City"
+      "taps": 40,
+      "Geo": "Washington"
     },
     {
       "id": 6,
       "name": "mini",
       "saves": 10,
       "taps": 20,
-      "Geo": "Bangalore"
+      "Geo": "Los Angeles"
+    },
+    {
+      "id": 7,
+      "name": "mythili",
+      "saves": 10,
+      "taps": 10,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 8,
+      "name": "jeevitha",
+      "saves": 10,
+      "taps": 40,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 9,
+      "name": "srivatshan",
+      "saves": 10,
+      "taps": 30,
+      "Geo": "Central California"
+    },
+    {
+      "id": 10,
+      "name": "Balaji",
+      "saves": 10,
+      "taps": 50,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 11,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 35,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 12,
+      "name": "mini",
+      "saves": 10,
+      "taps": 25,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 13,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Washington"
+    },
+    {
+      "id": 14,
+      "name": "vimal",
+      "saves": 10,
+      "taps": 30,
+      "Geo": "Los Angeles"
+    },
+    {
+      "id": 15,
+      "name": "aashiq",
+      "saves": 10,
+      "taps": 10,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 16,
+      "name": "parathaman",
+      "saves": 10,
+      "taps": 50,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 17,
+      "name": "panneer selvi",
+      "saves": 10,
+      "taps": 40,
+      "Geo": "Washington"
+    },
+    {
+      "id": 18,
+      "name": "mini",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Los Angeles"
+    },
+    {
+      "id": 19,
+      "name": "mythili",
+      "saves": 10,
+      "taps": 10,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 20,
+      "name": "jeevitha",
+      "saves": 10,
+      "taps": 40,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 21,
+      "name": "srivatshan",
+      "saves": 10,
+      "taps": 30,
+      "Geo": "Central California"
+    },
+    {
+      "id": 22,
+      "name": "Balaji",
+      "saves": 10,
+      "taps": 50,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 23,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 35,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 24,
+      "name": "mini",
+      "saves": 10,
+      "taps": 25,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 25,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Washington"
+    },
+    {
+      "id": 26,
+      "name": "vimal",
+      "saves": 10,
+      "taps": 30,
+      "Geo": "Los Angeles"
+    },
+    {
+      "id": 27,
+      "name": "aashiq",
+      "saves": 10,
+      "taps": 10,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 28,
+      "name": "parathaman",
+      "saves": 10,
+      "taps": 50,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 29,
+      "name": "panneer selvi",
+      "saves": 10,
+      "taps": 40,
+      "Geo": "Washington"
+    },
+    {
+      "id": 30,
+      "name": "mini",
+      "saves": 10,
+      "taps": 20,
+      "Geo": "Los Angeles"
+    },
+    {
+      "id": 31,
+      "name": "mythili",
+      "saves": 10,
+      "taps": 10,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 32,
+      "name": "jeevitha",
+      "saves": 10,
+      "taps": 40,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 33,
+      "name": "srivatshan",
+      "saves": 10,
+      "taps": 30,
+      "Geo": "Central California"
+    },
+    {
+      "id": 34,
+      "name": "Balaji",
+      "saves": 10,
+      "taps": 50,
+      "Geo": "Great Basin"
+    },
+    {
+      "id": 35,
+      "name": "janardani",
+      "saves": 10,
+      "taps": 35,
+      "Geo": "North Coast"
+    },
+    {
+      "id": 36,
+      "name": "mini",
+      "saves": 10,
+      "taps": 25,
+      "Geo": "Great Basin"
     }
   ]
 }

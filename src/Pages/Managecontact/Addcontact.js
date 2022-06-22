@@ -24,12 +24,12 @@ const Addcontact = () => {
     const [numtwoerror, setnumtwoerror] = useState('');
     var newflag = true;
 
-   // add contact field
-    const [submit, seSubmit] = useState([])
-    const [newlabel, setnewlabel] = useState('');
+    // add contact field
+    const [newlabel, setnewlabel] = useState([]);
     const [flag, setflag] = useState(false);
-    const [extradata, setextradata] = useState({values:['']})
-
+    const [valueset, setvalueset] = useState([]);
+    const [labelValues, setlabelValues] = useState("");
+    const [labelstore, setlabelstore] = useState({ values: [""] })
     const [contactdata, setcontactdata] = useState({
         Name: "",
         JobTitle: "",
@@ -40,7 +40,8 @@ const Addcontact = () => {
         fb: "",
         insta: "",
         linkedin: "",
-        secnum: ""
+        secnum: "",
+        newlabel: []
     })
     const condatafun = (e) => {
         setcontactdata({ ...contactdata, [e.target.name]: e.target.value });
@@ -85,22 +86,17 @@ const Addcontact = () => {
             }
 
             if (newflag) {
-           var arraycontact = [contactdata]
-            // console.log("contactdata",arraycontact);
-            // console.log("extradata",extradata.values);
-             var result = arraycontact.concat(extradata);
-          
-            // result.map(value=>
-            //     {
-            //         console.log("result",value);
-            //     })
-                axios.post(`http://localhost:8001/managecontact`, result);
+                newlabel.forEach(data => {
+                    if(data.label != '' || data.value != "")
+                    {
+                        contactdata.newlabel.push(data);
+                    }
+                  
+                })
+                axios.post(`http://localhost:8001/managecontact`, contactdata);
                 navigate('/Managecontact');
             }
-
-
         }
-
     }
 
     // upload images
@@ -125,39 +121,42 @@ const Addcontact = () => {
 
 
     const handlelabel = (e) => {
-        setnewlabel(e.target.value);
+        setlabelValues(e.target.value)
     }
+
     const savelabel = () => {
-
-        submit.push(newlabel)
-        setextradata(e =>({values:[...e.values,'']}))
-      
-        setflag(true)
-
-    }
-    const labelchange = (e,key) =>{
-        let values = [...extradata.values]
-        values[key] = e.target.value;
-        setextradata({values})
-        console.log("Extra data", extradata.values);
-
-    }
-    const deletelabel = (value) => {
-        submit.splice(value, 1);
-        console.log("delete array", submit);
-        console.log("delete value", value);
+        setvalueset([...valueset, labelValues]);
+        setnewlabel([...newlabel, { label: "", value: "" }])
+        setlabelstore((prevstate) =>({ values: [...prevstate.values, ''] }))
         setflag(true)
     }
+    const labelchange = (event, k) => {
+
+        let values = [...labelstore.values];
+        values[k] = event.target.value;
+        let element = [...newlabel];
+        element[k].label =valueset[k];
+        element[k].value = event.target.value;
+        setlabelstore({values});
+    }
+
+
+
+    /* -------------------- delete label ------------------   */
+
+    const deletelabel = (value, dellabel) => {
+        valueset.splice(value, 1);
+        newlabel.splice(value,1);
+        setflag(true)
+    }
+
+    /*  ------------------  use effect ------------------- */
+
+
     useEffect(() => {
 
         if (flag) { setflag(false) }
     }, [savelabel])
-
-
-
-
-
-
 
 
 
@@ -303,34 +302,37 @@ const Addcontact = () => {
 
                                     {numtwoerror && <p className='email-error-msg'>{numtwoerror}</p>}
                                 </div>
-                                {submit ? (
-                                    submit.map((e, k) => {
+                                {valueset ? (
+                                    valueset.map((ele, k) => {
                                         return (
                                             <div className='info-input d-flex flex-column col-lg-4' key={k}>
-                                                <label>{e}</label>
+                                                <label>{ele}</label>
                                                 <div className='custom-input flex-row'>
-                                                    {extradata.values.map((value,key)=>{
-                                                        if(k == key)
-                                                        {
-                                                            return(
-                                                                <>
-                                                                 <input autoComplete='off' type="text" name={value} placeholder={`Enter ${e}`} value={value || ""} onChange={(e)=>labelchange(e,key)} key={key} />
-                                                      
-                                                                </>
-                                                            )
-                                                        }
-                                                    })}
-                                                    
-                                                     <span className='delete-label' onClick={() => deletelabel(k)}><img src={close} />
-                                                     </span>
+                                                    <input autoComplete='off' type="text" name={ele}  value={newlabel[k].value} placeholder={`Enter ${ele}`} onChange={(event) => labelchange(event,k)} />
+                                                    <span className='delete-label' onClick={() => deletelabel(k,ele)}><img src={close} />
+                                                    </span>
                                                 </div>
                                             </div>
                                         )
-
                                     })
                                 ) : <>
                                     <p>null</p>
                                 </>}
+
+
+                                {/* {
+                                    newLabels.map((data,index)=>{
+                                        return(
+                                            <>
+                                          <div key={index}>  <label>{data.label}</label>
+                                            <input value={data.value}></input></div>
+                                            </>
+                                        )
+                                    })
+                                } */}
+
+
+
 
                             </div>
                         </IconContext.Provider>
@@ -345,7 +347,7 @@ const Addcontact = () => {
                         <div className="modal-content">
 
                             {/* <!-- Modal Header --> */}
-                            <div class="modal-header">
+                            <div className="modal-header">
                                 <h4 className="modal-title">Add Field</h4>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                             </div>
@@ -353,7 +355,7 @@ const Addcontact = () => {
                             {/* <!-- Modal body --> */}
                             <div className="modal-body">
                                 <label className="form-label modal-label">Label Name</label>
-                                <input type='text' placeholder='Enter label name' onChange={handlelabel} value={newlabel} className="form-control modal-input"></input>
+                                <input type='text' placeholder='Enter label name' onChange={handlelabel} className="form-control modal-input"></input>
                             </div>
 
                             {/* <!-- Modal footer --> */}

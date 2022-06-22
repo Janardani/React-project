@@ -72,6 +72,7 @@ function Dashboard(props) {
               )
             })}
           </ul>
+          <p className='copy-rights'>Copyright © All rights reserved.</p>
         </div>
        
         <div className='dash-right-main' id={toggleclick ? 'rightactive' : 'rightinactive'}>

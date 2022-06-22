@@ -188,6 +188,8 @@ span.req {
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 30px;
+    min-height: 160px;
+        height: 160px;
 }
 
 .inf-para {

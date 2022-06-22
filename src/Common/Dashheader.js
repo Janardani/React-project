@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import logo from '../Assets/images/logo.png'
 import toggle from '../Assets/images/toggle.png'
 import bell from '../Assets/images/bell.png'
@@ -6,16 +6,24 @@ import man from '../Assets/images/man.png'
 import downarrow from '../Assets/images/downarrow.png'
 import './Dashboard.css'
 import { Navigate, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 function Dashheader({ toggleclass,title }) {
 
   const navigate = useNavigate();
   const [logout, setlogout] = useState(false)
+  const [user, setuser] = useState({})
   const logoutfnc = () => {
     sessionStorage.removeItem("sesemail");
     localStorage.removeItem("dashboard page");
     navigate('/Login')
   }
+  useEffect(() => {
+    let id = sessionStorage.getItem("sesemail")
+ axios.get(`http://localhost:8001/User/${id}`).then(res => setuser(res.data)) 
+
+  }, [])
+
   return (
 
     <div className='dash-header d-flex align-items-baseline'>
@@ -44,7 +52,7 @@ function Dashheader({ toggleclass,title }) {
           </div>
           <div className='christ d-flex flex-column align-item-baseline'>
             <div className='christ-para-div d-flex' onClick={() => setlogout(!logout)}>
-              <p className='christ-para'>Chris Hemsworth</p>
+              <p className='christ-para'>{user.name}</p>
               <div className='christ-down-arrow' >
                 <img src={downarrow} />
                 {logout ? <div className='logout' onClick={logoutfnc}>

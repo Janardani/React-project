@@ -77,17 +77,27 @@ const shownItems = userdata.slice(indexofFirstValue, indexofLastValue);
     const ExportToExcel = () => {
         exportFromJSON({ data, fileName, exportType })
     }
-
+const downloadfunction = (e) =>
+{
+    var format = e.target.value;
+    if(format == 'export')
+    {
+        ExportToExcel();
+    }
+  
+}
   return (
     <Dashboard title={title}>
+    <div className='manage-main-div'>
         <div className='d-flex justify-content-between'>
         <h3 className='contactdetail'>List of Reports</h3>
   
      
-        <select className="form-select export-xls" aria-label="Default select example" onClick={ExportToExcel}>
-        <option style={{background: "#000000"}}>   Export As</option>
-           <option style={{background: "#000000"}}>xls</option>
-           <option style={{background: "#000000"}}>pdf</option>
+        <select className="form-select export-xls" aria-label="Default select example" value='' onChange={(e) => downloadfunction(e) }>
+        <option style={{background: "#000000"}} hidden>Export As</option>
+        <option value="export" style={{background: "#000000"}}>Export As</option>
+           <option value="xls" style={{background: "#000000"}}>xls</option>
+           <option value="pdf" style={{background: "#000000"}}>pdf</option>
        </select>
       
       
@@ -163,7 +173,7 @@ const shownItems = userdata.slice(indexofFirstValue, indexofLastValue);
                 </ul>
             </div>
 
-
+            </div>
     </Dashboard>
   )
 }

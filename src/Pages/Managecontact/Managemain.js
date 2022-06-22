@@ -17,8 +17,8 @@ function Managemain() {
     const [filterjob, setfilterjob] = useState('');
     const [filternum, setfilternum] = useState('');
     const [filteremail, setfilteremail] = useState('');
-var arrayone =[];
-var arraytwo=[];
+    // var arrayone = [];
+    // var arraytwo = [];
 
     useEffect(() => {
         localStorage.setItem("dashboard page", 2);
@@ -30,29 +30,23 @@ var arraytwo=[];
         }
         const result = async () => { axios.get("http://localhost:8001/managecontact").then(res => setuserdata(res.data)); }
         result();
-       
+
     }, []);
 
-    userdata.map((eas,key)=>
-        {
-           
-            // console.log("userdata",eas);
-            eas.map((value,item) =>{
-            if(item == 0)
-            {
-               arrayone.push(value)
-                console.log("one",arrayone);
-            
-        }
-    else if (item==1){
-                arraytwo.push(value.values);
-                // console.log("two",arraytwo);
-            }
-            })
-        })
+    // userdata.map((eas, key) => {
+    //     eas.map((value, item) => {
+    //         if (item == 0) {
+    //             arrayone.push(value)
+               
 
-     console.log("one",arrayone);
+    //         }
+    //         else if (item == 1) {
+    //             arraytwo.push(value.values);
+    //         }
+    //     })
+    // })
 
+  
 
     const viewcontact = (val) => {
         localStorage.setItem("view contact", val);
@@ -62,10 +56,23 @@ var arraytwo=[];
         localStorage.setItem("edit contact", val);
         navigate('/Editcontact');
     }
+    // const [deletecontactstate, setdeletecontactstate] = useState(false)
     const deletecontact = (val) => {
-        axios.delete(`http://localhost:8001/managecontact/${val}`);
-        window.location.reload(false)
-
+        if (window.confirm("Confirm to delete contact")) {
+            
+            axios.delete(`http://localhost:8001/managecontact/${val}`);
+            window.location.reload(false)
+          } 
+        //   else
+        //   {
+        //     setdeletecontactstate(false)
+        //   }
+        //   if(deletecontactstate)
+        //   {
+            
+        //   }
+         
+      
     }
     const clickdashboard = () => {
         navigate('/');
@@ -76,10 +83,9 @@ var arraytwo=[];
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const indexofLastValue = currentPage * itemsPerPage;
     const indexofFirstValue = indexofLastValue - itemsPerPage;
-    const shownItems = arrayone.slice(indexofFirstValue, indexofLastValue);
-    // console.log(shownItems);
+    const shownItems = userdata.slice(indexofFirstValue, indexofLastValue);
     const pages = [];
-    for (let i = 1; i <= Math.ceil(arrayone.length / itemsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(userdata.length / itemsPerPage); i++) {
         pages.push(i)
     }
     const handlePage = (pageId) => {
@@ -116,7 +122,7 @@ var arraytwo=[];
 
 
 
-// download
+    // download
     var title = "Manage Contact";
     const data = [{
         Name: "",
@@ -135,12 +141,12 @@ var arraytwo=[];
 
 
 
-    
+
     const ExportToExcel = () => {
         exportFromJSON({ data, fileName, exportType })
     }
 
-// upload
+    // upload
 
     const readUploadFile = (e) => {
         e.preventDefault();
@@ -152,16 +158,16 @@ var arraytwo=[];
                 const sheetName = workbook.SheetNames[0];
                 const worksheet = workbook.Sheets[sheetName];
                 const json = xlsx.utils.sheet_to_json(worksheet);
-                json.forEach(data =>{
-                  
-                         axios.post(`http://localhost:8001/managecontact`, data);
+                json.forEach(data => {
+
+                    axios.post(`http://localhost:8001/managecontact`, data);
                 })
             };
             reader.readAsArrayBuffer(e.target.files[0]);
         }
-     
+
     }
-  
+
 
     return (
         <Dashboard title={title}>
@@ -178,8 +184,8 @@ var arraytwo=[];
                                     <button type="button" onClick={ExportToExcel}>Export To Excel</button>
                                 </span>
                                 <span className=' bulk-up sample-btn upload-bulk-btn'>
-                                <input type="file" name='upload' className="form-control change-" onChange={readUploadFile}   id="upload" />
-                            <label htmlFor="upload"><span className='btn'>Bulk Upload Contact</span></label>
+                                    <input type="file" name='upload' className="form-control change-" onChange={readUploadFile} id="upload" />
+                                    <label htmlFor="upload"><span className='btn'>Bulk Upload Contact</span></label>
                                 </span>
                                 <button onClick={() => { navigate("/Addcontact") }} className='btn add-con sample-btn'>Add Contact</button>
                             </div>
@@ -203,26 +209,24 @@ var arraytwo=[];
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {shownItems.filter(val =>{
-                                        if((filtername=='') && (filterjob=='')&&(filteremail==''))
-                                        {
+                                    {shownItems.filter(val => {
+                                        if ((filtername == '') && (filterjob == '') && (filteremail == '')) {
                                             return val;
                                         }
-                                      else if ( (val.Name).toLowerCase().includes(filtername.toLowerCase()) && (val.JobTitle).toLowerCase().includes(filterjob.toLowerCase())  && (val.Emailid).toLowerCase().includes(filteremail.toLowerCase()))
-                                      {
-                                          return (val);
-                                      }
-                                     }).map((value, key) => {
+                                        else if ((val.Name).toLowerCase().includes(filtername.toLowerCase()) && (val.JobTitle).toLowerCase().includes(filterjob.toLowerCase()) && (val.Emailid).toLowerCase().includes(filteremail.toLowerCase())) {
+                                            return (val);
+                                        }
+                                    }).map((value, key) => {
                                         return (
                                             <tr key={key}>
-                                                <td>{key+1}</td>
+                                                <td>{key + 1}</td>
                                                 <td><a className='con-name' onClick={() => clickdashboard(value.id)}>{value.Name}</a></td>
                                                 <td>{value.JobTitle}</td>
                                                 <td>{value.MobileNumber}</td>
                                                 <td>{value.Emailid}</td>
                                                 <td>
                                                     <div className='icon-div d-flex'>
-                                                        <div> <img src={greeneye} alt="logo here" onClick={() => viewcontact(key+1)} /></div>
+                                                        <div> <img src={greeneye} alt="logo here" onClick={() => viewcontact(key + 1)} /></div>
                                                         <div><img src={pen} alt="logo here" onClick={() => editcontact(value.id)} /></div>
                                                         <div><img src={trash} alt="logo here" onClick={() => deletecontact(value.id)} /></div>
                                                     </div>

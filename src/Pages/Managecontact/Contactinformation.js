@@ -20,6 +20,9 @@ import backbtn from '../../Assets/images/backbtn.png'
 
 const Contactinformation = () => {
     const [userdata, setuserdata] = useState([]);
+    // const [label, setlabel] = useState([])
+    // var arrayone = [];
+    // var arraytwo = [];
     const navigate = useNavigate();
     const id = localStorage.getItem("view contact");
     useEffect(() => {
@@ -34,12 +37,16 @@ const Contactinformation = () => {
         const result = async () => { axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
         result();
     }, []);
+
     const backfuction = () =>
     {
         localStorage.removeItem("view contact");
         navigate('/Managecontact')
     }
     var title = "Manage Contact"
+
+var newlabel = userdata.newlabel;
+
   return (
       <Dashboard title={title}>
         <div>
@@ -117,16 +124,36 @@ const Contactinformation = () => {
                 </div>
                 <div className='col-lg-4'>
                     <div className='inf-img'>
-                        <img src={in10} alt="image here" />
-                        <p className='inf-para'>Custom Fields</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
                         <img src={in11} alt="image here" />
                         <p className='inf-para'>Address</p>
                     </div>
                 </div>
+         
+
+
+         {
+            Object.keys(userdata).length ? 
+            (newlabel.map((data,key)=>{
+                return(
+                    <>
+                     <div className='col-lg-4'>
+                    <div className='inf-img'>
+                    <img src={in10} alt="image here" />
+                        <p className='inf-para'>{data.label}</p>
+                        <p className='inf-strng'>{data.value}</p>
+                    </div>
+                </div>
+                    </>
+                   
+                )
+            }))  : 
+            null
+            
+         }
+                           
+
+            
+
             </div>
         </div>
         </Dashboard>

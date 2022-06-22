@@ -13,35 +13,25 @@ import {IoBagSharp} from 'react-icons/io5';
 import {GoMail} from 'react-icons/go';
 import {FaFacebookF,FaInstagram,FaLinkedinIn} from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import close from '../../Assets/images/close.png'
 
 const Editcontact = () => {
     const notify = () => toast("Please fill required field");
     const navigate = useNavigate();
-    const [userdata, setuserdata] = useState({
-        Name: "",
-        JobTitle: "",
-        MobileNumber: "",
-        Emailid: "",
-        org: "",
-        website: "",
-        fb: "",
-        insta: "",
-        linkedin: "",
-        secnum: ""
-    });
+    const [userdata, setuserdata] = useState({});
     const [emailerror, setemailerror] = useState('');
     const [numeonerror, setnumoneerror] = useState('');
     const [numtwoerror, setnumtwoerror] = useState('');
     var newflag = true;
     const id = localStorage.getItem("edit contact");
-
-    const condatafun = (e) => {
-        setuserdata({ ...userdata, [e.target.name]: e.target.value });
-    }
+    var newlabels;
+    // var newlabels = userdata.newlabel ;
     useEffect(() => {
+      
         localStorage.setItem("dashboard page", 2);
-        const result = async () => { axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
+        const result = async () => {axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
         result();
+      
         if (sessionStorage.getItem("sesemail")) {
             navigate('/Editcontact');
         }
@@ -49,7 +39,12 @@ const Editcontact = () => {
             navigate('/Login')
         }
 
+       
     }, []);
+   
+    const condatafun = (e) => {
+        setuserdata({ ...userdata, [e.target.name]: e.target.value });
+    }
     const contactupdate = () => {
         setemailerror("")
         setnumoneerror("")
@@ -77,14 +72,19 @@ const Editcontact = () => {
             }
 
             if (newflag) {
+                userdata.newlabel.splice(0)
+                newlabel.forEach(data => {
+                    if(data.label != '' || data.value != "")
+                    {
+                        userdata.newlabel.push(data);
+                    }
+                  
+                })
                 axios.put(`http://localhost:8001/managecontact/${id}`, userdata);
                 navigate('/Managecontact');
             }
-
-
+         }
         }
-
-    }
     const back = () => {
         localStorage.clear("edit contact")
         navigate('/Managecontact');
@@ -106,6 +106,74 @@ const Editcontact = () => {
          setupload("https://png.pngitem.com/pimgs/s/508-5087336_person-man-user-account-profile-employee-profile-template.png")
      }
      var title = "Manage Contact"
+   /* -----add contact -------- */
+     newlabels = userdata.newlabel ;
+     var length;
+     const [newlabel, setnewlabel] = useState([]);
+     const [flag, setflag] = useState(false);
+     const [valueset, setvalueset] = useState([]);
+     const [labelValues, setlabelValues] = useState("");
+     const [labelstore, setlabelstore] = useState({ values: [""] })
+   useEffect(() => {
+
+   }, [])
+   
+        if((Object.keys(userdata).length > 0))
+     {
+        length = newlabels.length;
+          if((valueset.length) < length)
+          {
+            userdata.newlabel.forEach(data =>{
+            valueset.push(data.label);
+            newlabel.push(data);
+                })
+          }
+       
+     }
+
+     // add contact field
+
+
+     const handlelabel = (e) => {
+        setlabelValues(e.target.value)
+    }
+
+    const savelabel = () => {
+         valueset.push(labelValues);
+        setnewlabel([...newlabel, { label: "", value: "" }])
+        setlabelstore((prevstate) => ({ values: [...prevstate.values, ''] }))
+        setflag(true)
+    }
+    const labelchange = (event, k) => {
+
+        let values = [...labelstore.values];
+        values[k] = event.target.value;
+        let element = [...newlabel];
+        element[k].label =valueset[k];
+        element[k].value = event.target.value;
+        setlabelstore({values});
+    }
+
+
+
+    /* -------------------- delete label ------------------   */
+
+    const deletelabel = (value, dellabel) => {
+        valueset.splice(value, 1);
+        newlabel.splice(value,1);
+        setflag(true)
+    }
+
+    /*  ------------------  use effect ------------------- */
+
+
+    useEffect(() => {
+
+        if (flag) { setflag(false) }
+    }, [savelabel])
+
+
+
     return (
         <>
             <Dashboard title={title}>
@@ -117,7 +185,7 @@ const Editcontact = () => {
                 <div className='add-contact'>
                     <div className='d-flex justify-content-between add-contact-add'>
                         <p className='add-edit'>Add/Edit Form</p>
-                        <button className='btn add-field' >Add Field</button>
+                        <button className='btn add-field' data-bs-toggle="modal" data-bs-target="#myModal">Add Field</button>
                     </div>
                     <div className='apex d-flex align-items-center'>
                         <div className='upload-img'>
@@ -132,7 +200,7 @@ const Editcontact = () => {
                     <div className='basic-information'>
                         <p className='basic-info add-edit add-contact-add'>Basic Information</p>
                         <div className='info-input-main row'>
-                            <><div className='info-input d-flex flex-column col-lg-4'>
+                            <div className='info-input d-flex flex-column col-lg-4'>
                                 <label>Name <span className='req'>*</span></label>
                                 <div className='custom-input'>
                                     <input autoComplete='off' type="text" name='Name' value={userdata.Name} onChange={condatafun} placeholder="Enter name" required></input>
@@ -230,7 +298,24 @@ const Editcontact = () => {
 
                                     {numtwoerror && <p className='email-error-msg'>{numtwoerror}</p>}
                                 </div>
-                            </>
+                                {Object.keys(userdata).length?(
+                                    valueset.map((data,k)=>{
+    
+                                        return(
+                                            <div className='info-input d-flex flex-column col-lg-4'>
+                                            <label>{data}</label>
+                                            <div className='custom-input'>
+                                            <span className='delete-label' onClick={() => deletelabel(k,data)}><img src={close} />
+                                                
+                                                </span>
+                                                <input type="text" name={data} autoComplete='off' placeholder={`Enter ${data}`}  onChange={(event) => labelchange(event,k)} value={newlabel[k].value}></input>
+                                               
+                                            </div>
+                                        </div>
+                                        )
+                                    })
+                                ):<div>jdhksdgsi</div>}
+                           
                         </div>
                         <div className='contactfrom-btn d-flex justify-content-center'>
                             <button className='btn add-update' onClick={contactupdate}>Update</button>
@@ -239,6 +324,33 @@ const Editcontact = () => {
                     </div>
                     </IconContext.Provider>
                 </div>
+                { /* -------------------- delete label ------------------   */ }
+                <div className="modal" id="myModal">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+
+                            {/* <!-- Modal Header --> */}
+                            <div className="modal-header">
+                                <h4 className="modal-title">Add Field</h4>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            {/* <!-- Modal body --> */}
+                            <div className="modal-body">
+                                <label className="form-label modal-label">Label Name</label>
+                                <input type='text' placeholder='Enter label name' onChange={handlelabel} className="form-control modal-input"></input>
+                            </div>
+
+                            {/* <!-- Modal footer --> */}
+                            <div className="modal-footer justify-content-between">
+                                <button type="button" onClick={savelabel} data-bs-dismiss="modal" className='btn modal-save'>Save</button>
+                                <button type="button" className="btn  modal-cancel" data-bs-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </Dashboard>
         </>
     )
