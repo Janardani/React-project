@@ -391,11 +391,12 @@ tr.managecontact-tr th {
 }
 
 .page-sel {
-    background: #202020 !important;
+    background: url(../../Assets/images/pagearrow.png) 90%,#202020 !important;
     border: 1px solid #2F3032 !important;
     border-radius: 5px !important;
     color: #fff !important;
     padding: 8px 30px 8px 10px !important;
+    background-repeat: no-repeat !important;
 }
 
 .prevbtn {
@@ -449,7 +450,8 @@ tr.managecontact-tr th {
     border-radius: 5px !important;
     width: 137px !important;
     color: #fff !important;
-    background-color: #000 !important;
+    background:url("../../Assets/images/downarrow.png") 90%, #000 !important;
+    background-repeat: no-repeat !important;
 }
 
 /* ------------------------Reports end---------------------- */

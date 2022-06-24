@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../Assets/images/logo.png'
 import toggle from '../Assets/images/toggle.png'
 import bell from '../Assets/images/bell.png'
@@ -8,24 +8,21 @@ import './Dashboard.css'
 import { Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-function Dashheader({ toggleclass,title }) {
+function Dashheader({ toggleclass, title,togglelogout }) {
 
   const navigate = useNavigate();
-  const [logout, setlogout] = useState(false)
+
   const [user, setuser] = useState({})
-  const logoutfnc = () => {
-    sessionStorage.removeItem("sesemail");
-    localStorage.removeItem("dashboard page");
-    navigate('/Login')
-  }
+
   useEffect(() => {
     let id = sessionStorage.getItem("sesemail")
- axios.get(`http://localhost:8001/User/${id}`).then(res => setuser(res.data)) 
+    axios.get(`http://localhost:8001/User/${id}`).then(res => setuser(res.data))
 
   }, [])
 
+ 
   return (
-
+ 
     <div className='dash-header d-flex align-items-baseline'>
 
       <div className='dash-head-one col-lg-3 d-flex'>
@@ -50,15 +47,12 @@ function Dashheader({ toggleclass,title }) {
           <div className='man-img'>
             <img src={man} />
           </div>
-          <div className='christ d-flex flex-column align-item-baseline'>
-            <div className='christ-para-div d-flex' onClick={() => setlogout(!logout)}>
+          <div className='christ d-flex flex-column align-item-baseline' onClick={togglelogout}>
+            <div className='christ-para-div d-flex' >
               <p className='christ-para'>{user.name}</p>
               <div className='christ-down-arrow' >
                 <img src={downarrow} />
-                {logout ? <div className='logout' onClick={logoutfnc}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <path d="M9.375 233.4l128-128c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H480c17.69 0 32 14.31 32 32s-14.31 32-32 32H109.3l73.38 73.38c12.5 12.5 12.5 32.75 0 45.25c-12.49 12.49-32.74 12.51-45.25 0l-128-128C-3.125 266.1-3.125 245.9 9.375 233.4z" /></svg>
-                  <p>Logout</p>
-                </div> : null}
+
               </div>
             </div>
             <p className='christ-super'>Super Admin</p>
@@ -68,7 +62,7 @@ function Dashheader({ toggleclass,title }) {
       <div>
       </div>
     </div>
-
+ 
   )
 }
 

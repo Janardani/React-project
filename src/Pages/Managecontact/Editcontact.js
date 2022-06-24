@@ -7,11 +7,11 @@ import { emailValidator, NumberValidator } from '../../Shared/Passwordregexp';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from '../../Common/Dashboard';
 import { AiOutlineUser } from 'react-icons/ai';
-import { BsTelephoneFill,BsGlobe } from 'react-icons/bs';
+import { BsTelephoneFill, BsGlobe } from 'react-icons/bs';
 import { GiOrganigram } from 'react-icons/gi';
-import {IoBagSharp} from 'react-icons/io5';
-import {GoMail} from 'react-icons/go';
-import {FaFacebookF,FaInstagram,FaLinkedinIn} from 'react-icons/fa';
+import { IoBagSharp } from 'react-icons/io5';
+import { GoMail } from 'react-icons/go';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import close from '../../Assets/images/close.png'
 
@@ -24,14 +24,11 @@ const Editcontact = () => {
     const [numtwoerror, setnumtwoerror] = useState('');
     var newflag = true;
     const id = localStorage.getItem("edit contact");
-    var newlabels;
-    // var newlabels = userdata.newlabel ;
+
     useEffect(() => {
-      
         localStorage.setItem("dashboard page", 2);
-        const result = async () => {axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
+        const result = async () => { axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
         result();
-      
         if (sessionStorage.getItem("sesemail")) {
             navigate('/Editcontact');
         }
@@ -39,12 +36,14 @@ const Editcontact = () => {
             navigate('/Login')
         }
 
-       
+
     }, []);
-   
+    /* ----------------  get static input  ---------------*/
     const condatafun = (e) => {
         setuserdata({ ...userdata, [e.target.name]: e.target.value });
     }
+
+    /* ----------------   authenctication and navigation ---------------*/
     const contactupdate = () => {
         setemailerror("")
         setnumoneerror("")
@@ -52,7 +51,6 @@ const Editcontact = () => {
         const validatedmail = emailValidator(userdata.Emailid);
         const validatednumber = NumberValidator(userdata.MobileNumber);
         const Validatesecnumber = NumberValidator(userdata.secnum);
-
         if ((userdata.Name.length) == 0 && (userdata.MobileNumber.length) == 0) {
             notify()
         }
@@ -74,99 +72,88 @@ const Editcontact = () => {
             if (newflag) {
                 userdata.newlabel.splice(0)
                 newlabel.forEach(data => {
-                    if(data.label != '' || data.value != "")
-                    {
+                    if (data.label != '' || data.value != "") {
                         userdata.newlabel.push(data);
                     }
-                  
+
                 })
                 axios.put(`http://localhost:8001/managecontact/${id}`, userdata);
                 navigate('/Managecontact');
             }
-         }
         }
+    }
+    /* ---------------- back to edit contact   ---------------*/
     const back = () => {
         localStorage.clear("edit contact")
         navigate('/Managecontact');
     }
-     // upload images
+    /* ----------------  upload images  ---------------*/
 
-     const [upload, setupload] = useState("https://png.pngitem.com/pimgs/s/508-5087336_person-man-user-account-profile-employee-profile-template.png");
-     const uploadimageclick = (e) => {
-         const reader = new FileReader();
-         reader.onload = () => {
-             if (reader.readyState === 2) {
-                 setupload(reader.result);
-             }
-         }
-         reader.readAsDataURL(e.target.files[0])
-     }
- 
-     const removephoto = () => {
-         setupload("https://png.pngitem.com/pimgs/s/508-5087336_person-man-user-account-profile-employee-profile-template.png")
-     }
-     var title = "Manage Contact"
-   /* -----add contact -------- */
-     newlabels = userdata.newlabel ;
-     var length;
-     const [newlabel, setnewlabel] = useState([]);
-     const [flag, setflag] = useState(false);
-     const [valueset, setvalueset] = useState([]);
-     const [labelValues, setlabelValues] = useState("");
-     const [labelstore, setlabelstore] = useState({ values: [""] })
-   useEffect(() => {
-
-   }, [])
-   
-        if((Object.keys(userdata).length > 0))
-     {
-        length = newlabels.length;
-          if((valueset.length) < length)
-          {
-            userdata.newlabel.forEach(data =>{
-            valueset.push(data.label);
-            newlabel.push(data);
-                })
-          }
-       
-     }
-
-     // add contact field
-
-
-     const handlelabel = (e) => {
-        setlabelValues(e.target.value)
+    const [upload, setupload] = useState("https://png.pngitem.com/pimgs/s/508-5087336_person-man-user-account-profile-employee-profile-template.png");
+    const uploadimageclick = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setupload(reader.result);
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
     }
 
+    const removephoto = () => {
+        setupload("https://png.pngitem.com/pimgs/s/508-5087336_person-man-user-account-profile-employee-profile-template.png")
+    }
+    var title = "Manage Contact"
+    /* -----add contact -------- */
+    var newlabels;
+    newlabels = userdata.newlabel;
+    var length;
+    const [newlabel, setnewlabel] = useState([]);
+    const [flag, setflag] = useState(false);
+    const [labelValues, setlabelValues] = useState("");
+    const [labelstore, setlabelstore] = useState({ values: [""] })
+    var valueset = [];
+    /* ---------------- set label value   ---------------*/
+    if ((Object.keys(userdata).length > 0)) {
+        length = newlabels.length;
+        if ((valueset.length) < length) {
+            userdata.newlabel.forEach(data => {
+                valueset.push(data.label);
+                newlabel.push(data);
+            })
+        }
+
+    }
+    /* ----------------  add contact field  ---------------*/
+    /* ----------------  get label value  ---------------*/
+    const handlelabel = (e) => {
+        setlabelValues(e.target.value)
+    }
+    /* ----------------  save label button   ---------------*/
     const savelabel = () => {
-         valueset.push(labelValues);
+        valueset.push(labelValues);
         setnewlabel([...newlabel, { label: "", value: "" }])
         setlabelstore((prevstate) => ({ values: [...prevstate.values, ''] }))
         setflag(true)
     }
+    /* ----------------  get dynamic input values  ---------------*/
     const labelchange = (event, k) => {
-
         let values = [...labelstore.values];
         values[k] = event.target.value;
         let element = [...newlabel];
-        element[k].label =valueset[k];
+        element[k].label = valueset[k];
         element[k].value = event.target.value;
-        setlabelstore({values});
+        setlabelstore({ values });
     }
 
-
-
     /* -------------------- delete label ------------------   */
-
     const deletelabel = (value, dellabel) => {
         valueset.splice(value, 1);
-        newlabel.splice(value,1);
+        newlabel.splice(value, 1);
         setflag(true)
     }
 
     /*  ------------------  use effect ------------------- */
-
-
     useEffect(() => {
 
         if (flag) { setflag(false) }
@@ -177,7 +164,7 @@ const Editcontact = () => {
     return (
         <>
             <Dashboard title={title}>
-                
+
                 <div id='toast-1'>
                     <ToastContainer />
                 </div>
@@ -197,24 +184,24 @@ const Editcontact = () => {
                         <span className='remove-photo' onClick={removephoto}>Remove Photo</span>
                     </div>
                     <IconContext.Provider value={{ color: ' #898d99', size: '20px' }}>
-                    <div className='basic-information'>
-                        <p className='basic-info add-edit add-contact-add'>Basic Information</p>
-                        <div className='info-input-main row'>
-                            <div className='info-input d-flex flex-column col-lg-4'>
-                                <label>Name <span className='req'>*</span></label>
-                                <div className='custom-input'>
-                                    <input autoComplete='off' type="text" name='Name' value={userdata.Name} onChange={condatafun} placeholder="Enter name" required></input>
-                                    <span className='add-img'>
-                                    <AiOutlineUser />
-                                    </span>
+                        <div className='basic-information'>
+                            <p className='basic-info add-edit add-contact-add'>Basic Information</p>
+                            <div className='info-input-main row'>
+                                <div className='info-input d-flex flex-column col-lg-4'>
+                                    <label>Name <span className='req'>*</span></label>
+                                    <div className='custom-input'>
+                                        <input autoComplete='off' type="text" name='Name' value={userdata.Name} onChange={condatafun} placeholder="Enter name" required></input>
+                                        <span className='add-img'>
+                                            <AiOutlineUser />
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
                                 <div className='info-input d-flex flex-column col-lg-4'>
                                     <label>Job Title </label>
                                     <div className='custom-input'>
                                         <input autoComplete='off' type="text" name='JobTitle' value={userdata.JobTitle} onChange={condatafun} placeholder="Enter Job Title"></input>
                                         <span className='add-img'>
-                                        <IoBagSharp />
+                                            <IoBagSharp />
                                         </span>
                                     </div>
                                 </div>
@@ -223,7 +210,7 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input autoComplete='off' type="text" name='MobileNumber' value={userdata.MobileNumber} onChange={condatafun} placeholder="Enter Phone Number"></input>
                                         <span className='add-img'>
-                                        <BsTelephoneFill />
+                                            <BsTelephoneFill />
                                         </span>
                                     </div>
                                     {numeonerror && <p className='email-error-msg'>{numeonerror}</p>}
@@ -233,7 +220,7 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input autoComplete='off' type="text" name='Emailid' value={userdata.Emailid} onChange={condatafun} placeholder="Enter Email id" />
                                         <span className='add-img'>
-                                        <GoMail />
+                                            <GoMail />
                                         </span>
 
                                     </div>
@@ -243,7 +230,7 @@ const Editcontact = () => {
                                     <label>Organization</label>
                                     <div className='custom-input'>  <input type="text" autoComplete='off' name='org' value={userdata.org} onChange={condatafun} placeholder="Enter Organization"></input>
                                         <span className='add-img'>
-                                        <GiOrganigram />
+                                            <GiOrganigram />
                                         </span>
                                     </div>
                                 </div>
@@ -252,7 +239,7 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input autoComplete='off' type="text" name='website' value={userdata.website} onChange={condatafun} placeholder="Enter Website"></input>
                                         <span className='add-img'>
-                                        <BsGlobe />
+                                            <BsGlobe />
                                         </span>
 
                                     </div>
@@ -262,7 +249,7 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input type="text" autoComplete='off' name='fb' value={userdata.fb} onChange={condatafun} placeholder="Enter facebook link"></input>
                                         <span className='add-img'>
-                                        <FaFacebookF />
+                                            <FaFacebookF />
                                         </span>
 
                                     </div>
@@ -272,7 +259,7 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input type="text" autoComplete='off' name='insta' value={userdata.insta} onChange={condatafun} placeholder="Enter Instagram link"></input>
                                         <span className='add-img'>
-                                        <FaInstagram />
+                                            <FaInstagram />
                                         </span>
 
                                     </div>
@@ -282,7 +269,7 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input type="text" name='linkedin' autoComplete='off' value={userdata.linkedin} onChange={condatafun} placeholder="Enter Linkedin link"></input>
                                         <span className='add-img'>
-                                        <FaLinkedinIn />
+                                            <FaLinkedinIn />
                                         </span>
                                     </div>
                                 </div>
@@ -291,40 +278,39 @@ const Editcontact = () => {
                                     <div className='custom-input'>
                                         <input type="text" name='secnum' autoComplete='off' value={userdata.secnum} onChange={condatafun} placeholder="Enter Phone Number"></input>
                                         <span className='add-img'>
-                                        <BsTelephoneFill />
+                                            <BsTelephoneFill />
                                         </span>
 
                                     </div>
 
                                     {numtwoerror && <p className='email-error-msg'>{numtwoerror}</p>}
                                 </div>
-                                {Object.keys(userdata).length?(
-                                    valueset.map((data,k)=>{
-    
-                                        return(
+                                {Object.keys(userdata).length ? (
+                                    valueset.map((data, k) => {
+
+                                        return (
                                             <div className='info-input d-flex flex-column col-lg-4'>
-                                            <label>{data}</label>
-                                            <div className='custom-input'>
-                                            <span className='delete-label' onClick={() => deletelabel(k,data)}><img src={close} />
-                                                
-                                                </span>
-                                                <input type="text" name={data} autoComplete='off' placeholder={`Enter ${data}`}  onChange={(event) => labelchange(event,k)} value={newlabel[k].value}></input>
-                                               
+                                                <label>{data}</label>
+                                                <div className='custom-input'>
+                                                    <span className='delete-label' onClick={() => deletelabel(k, data)}><img src={close} />
+
+                                                    </span>
+                                                    <input type="text" name={data} autoComplete='off' placeholder={`Enter ${data}`} onChange={(event) => labelchange(event, k)} value={newlabel[k].value}></input>
+
+                                                </div>
                                             </div>
-                                        </div>
                                         )
                                     })
-                                ):<div>jdhksdgsi</div>}
-                           
+                                ) : null}
+
+                            </div>
+                            <div className='contactfrom-btn d-flex justify-content-center'>
+                                <button className='btn add-update' onClick={contactupdate}>Update</button>
+                                <button className='btn add-cancel' onClick={back}>Cancel</button>
+                            </div>
                         </div>
-                        <div className='contactfrom-btn d-flex justify-content-center'>
-                            <button className='btn add-update' onClick={contactupdate}>Update</button>
-                            <button className='btn add-cancel' onClick={back}>Cancel</button>
-                        </div>
-                    </div>
                     </IconContext.Provider>
                 </div>
-                { /* -------------------- delete label ------------------   */ }
                 <div className="modal" id="myModal">
                     <div className="modal-dialog">
                         <div className="modal-content">

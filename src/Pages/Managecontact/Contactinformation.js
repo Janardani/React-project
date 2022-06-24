@@ -16,149 +16,132 @@ import in10 from '../../Assets/images/10in.png'
 import in11 from '../../Assets/images/11in.png'
 import backbtn from '../../Assets/images/backbtn.png'
 
-
-
 const Contactinformation = () => {
     const [userdata, setuserdata] = useState([]);
-    // const [label, setlabel] = useState([])
-    // var arrayone = [];
-    // var arraytwo = [];
     const navigate = useNavigate();
     const id = localStorage.getItem("view contact");
     useEffect(() => {
         localStorage.setItem("dashboard page", 2);
-        if(sessionStorage.getItem("sesemail"))
-        {
-          navigate('/Contactinformation');
+        if (sessionStorage.getItem("sesemail")) {
+            navigate('/Contactinformation');
         }
-        else{
-          navigate('/Login')
+        else {
+            navigate('/Login')
         }
         const result = async () => { axios.get(`http://localhost:8001/managecontact/${id}`).then(res => setuserdata(res.data)); }
         result();
     }, []);
-
-    const backfuction = () =>
-    {
+    const backfuction = () => {
         localStorage.removeItem("view contact");
         navigate('/Managecontact')
     }
     var title = "Manage Contact"
 
-var newlabel = userdata.newlabel;
+    var newlabel = userdata.newlabel;
 
-  return (
-      <Dashboard title={title}>
-        <div>
-           <div className='contact-main d-flex justify-content-between align-items-baseline'>
-            <h3 className='contactdetail'>Contact information</h3>
-            <button className='btn back-btn'  onClick={backfuction}>Back
-            <div className='backbtnlogo'>
-                <img src={backbtn} alt="image here" />
+    return (
+        <Dashboard title={title}>
+            <div>
+                <div className='contact-main d-flex justify-content-between align-items-baseline'>
+                    <h3 className='contactdetail'>Contact information</h3>
+                    <button className='btn back-btn' onClick={backfuction}>Back
+                        <div className='backbtnlogo'>
+                            <img src={backbtn} alt="image here" />
+                        </div>
+                    </button>
+                </div>
+                <div className='row'>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in1} alt="image here" />
+                            <p className='inf-para'>Name</p>
+                            <p className='inf-strng'>{userdata.Name}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in2} alt="image here" />
+                            <p className='inf-para'>Job Title</p>
+                            <p className='inf-strng'>{userdata.JobTitle}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in3} alt="image here" />
+                            <p className='inf-para'>Mobile Number</p>
+                            <p className='inf-strng'>{userdata.MobileNumber}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in4} alt="image here" />
+                            <p className='inf-para'>Email id</p>
+                            <p className='inf-strng'>{userdata.Emailid}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in5} alt="image here" />
+                            <p className='inf-para'>Organization</p>
+                            <p className='inf-strng'>{userdata.org}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in6} alt="image here" />
+                            <p className='inf-para'>Website</p>
+                            <p className='inf-strng inf-web'>{userdata.website}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in7} alt="image here" />
+                            <p className='inf-para'>Facebook</p>
+                            <p className='inf-strng inf-fb'>{userdata.fb}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in8} alt="image here" />
+                            <p className='inf-para'>Intagram</p>
+                            <p className='inf-strng inf-insta'>{userdata.insta}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in9} alt="image here" />
+                            <p className='inf-para'>Linkedin</p>
+                            <p className='inf-strng inf-linkedin'>{userdata.linkedin}</p>
+                        </div>
+                    </div>
+                    <div className='col-lg-4'>
+                        <div className='inf-img'>
+                            <img src={in11} alt="image here" />
+                            <p className='inf-para'>Address</p>
+                        </div>
+                    </div>
+                    {
+                        Object.keys(userdata).length ?
+                            (newlabel.map((data, key) => {
+                                return (
+                                    <>
+                                        <div className='col-lg-4'>
+                                            <div className='inf-img'>
+                                                <img src={in10} alt="image here" />
+                                                <p className='inf-para'>{data.label}</p>
+                                                <p className='inf-strng'>{data.value}</p>
+                                            </div>
+                                        </div>
+                                    </>
+
+                                )
+                            })) :
+                            null}
+                </div>
             </div>
-            </button>
-            </div>
-            <div className='row'>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in1} alt="image here" />
-                        <p className='inf-para'>Name</p>
-                        <p className='inf-strng'>{userdata.Name}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in2} alt="image here" />
-                        <p className='inf-para'>Job Title</p>
-                        <p className='inf-strng'>{userdata.JobTitle}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in3} alt="image here" />
-                        <p className='inf-para'>Mobile Number</p>
-                        <p className='inf-strng'>{userdata.MobileNumber}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in4} alt="image here" />
-                        <p className='inf-para'>Email id</p>
-                        <p className='inf-strng'>{userdata.Emailid}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in5} alt="image here" />
-                        <p className='inf-para'>Organization</p>
-                        <p className='inf-strng'>{userdata.org}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in6} alt="image here" />
-                        <p className='inf-para'>Website</p>
-                        <p className='inf-strng inf-web'>{userdata.website}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in7} alt="image here" />
-                        <p className='inf-para'>Facebook</p>
-                        <p className='inf-strng inf-fb'>{userdata.fb}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in8} alt="image here" />
-                        <p className='inf-para'>Intagram</p>
-                        <p className='inf-strng inf-insta'>{userdata.insta}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in9} alt="image here" />
-                        <p className='inf-para'>Linkedin</p>
-                        <p className='inf-strng inf-linkedin'>{userdata.linkedin}</p>
-                    </div>
-                </div>
-                <div className='col-lg-4'>
-                    <div className='inf-img'>
-                        <img src={in11} alt="image here" />
-                        <p className='inf-para'>Address</p>
-                    </div>
-                </div>
-         
-
-
-         {
-            Object.keys(userdata).length ? 
-            (newlabel.map((data,key)=>{
-                return(
-                    <>
-                     <div className='col-lg-4'>
-                    <div className='inf-img'>
-                    <img src={in10} alt="image here" />
-                        <p className='inf-para'>{data.label}</p>
-                        <p className='inf-strng'>{data.value}</p>
-                    </div>
-                </div>
-                    </>
-                   
-                )
-            }))  : 
-            null
-            
-         }
-                           
-
-            
-
-            </div>
-        </div>
         </Dashboard>
     )
-   
+
 }
 
 export default Contactinformation

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import scan from '../../Assets/images/scan.png';
 import logo from '../../Assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
@@ -31,8 +30,8 @@ function Login() {
         const result = async () => { axios.get("http://localhost:8001/User").then(res => setuserdata(res.data)); }
         result();
         if (sessionStorage.getItem("sesemail")) {
-          
-            
+
+
             navigate('/');
         }
         else {
@@ -70,7 +69,7 @@ function Login() {
                 userdata.filter(userdata => {
                     if ((userdata.email == data.email) && (userdata.password == data.password)) {
                         sessionStorage.setItem("sesemail", userdata.id);
-                        localStorage.setItem("dashboard page",1);
+                        localStorage.setItem("dashboard page", 1);
                         navigate("/")
                     }
                     else {

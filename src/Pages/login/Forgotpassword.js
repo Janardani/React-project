@@ -1,11 +1,9 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import scan from '../../Assets/images/scan.png';
 import logo from '../../Assets/images/logo.png';
 import { useNavigate } from "react-router-dom";
 import './Login.css'
 import axios from 'axios';
-
-
 
 function Forgotpassword() {
 
@@ -13,28 +11,26 @@ function Forgotpassword() {
     const [email, setemail] = useState('');
     const [userdata, setuserdata] = useState('');
     const [emailerrormsg, setemailerrormsg] = useState('');
-    const valuechange = (e) =>
-    {
+
+    const valuechange = (e) => {
         setemail(e.target.value);
     }
 
     useEffect(() => {
-        const result = async () =>{axios.get("http://localhost:8001/User").then(res => setuserdata(res.data));
-      
-    }
+        const result = async () => { axios.get("http://localhost:8001/User").then(res => setuserdata(res.data)); }
         result();
-      }, []);
-  const loginsubmit = (event) => {
+    }, []);
+
+    /* validation here*/
+    const loginsubmit = (event) => {
         event.preventDefault();
-        for(var i=0;i<  (userdata.length);i++)
-        {
-           
-            if((email)==(userdata[i].email))
-            {
-                localStorage.setItem('id for validation',i)
-               navigate('/Resetpassword')
+        for (var i = 0; i < (userdata.length); i++) {
+
+            if ((email) == (userdata[i].email)) {
+                localStorage.setItem('id for validation', i)
+                navigate('/Resetpassword')
             }
-            else{
+            else {
                 setemailerrormsg('Please enter correct password');
             }
         }
@@ -66,13 +62,13 @@ function Forgotpassword() {
                         <form onSubmit={loginsubmit}>
                             <div className="form-group">
                                 <label htmlFor="usr" className="email-para">Email Id</label>
-                                <input type="text"  autoComplete='off' className="form-control email-inp email-inp-one" id="usr-1" name="email" value={email} onChange={valuechange} />
+                                <input type="text" autoComplete='off' className="form-control email-inp email-inp-one" id="usr-1" name="email" value={email} onChange={valuechange} />
                                 {emailerrormsg && <p className='email-error-msg'>{emailerrormsg}</p>}
                             </div>
                             <div className="form-group forgotpassword-submit">
                                 <button className="btn login-btn">SUBMIT</button>
                             </div>
-                            <div  className='forgot-link forgotpassword-class'>Back to login</div>
+                            <div className='forgot-link forgotpassword-class' onClick={() => navigate("/Login")}>Back to login</div>
                         </form>
                     </div>
                 </div>

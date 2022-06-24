@@ -63,17 +63,18 @@
 }
 
 .logout {
-    position: absolute;
-    top: 58px;
+    position: fixed;
+    top: 71px;
     background: #f26339;
     font-size: 16px;
     padding: 15px 25px;
     border-radius: 5px;
     border: 1px solid #fff;
     align-items: center;
-    right: -5px;
+    right: 22px;
     width: 137px;
     font-weight: 500;
+    z-index: 99999999;
 }
 
 .logout svg {
@@ -345,7 +346,10 @@
     color: #DB9B88;
     text-decoration: underline;
 }
-
+.dashboard-table tbody tr td:nth-child(2) {
+    color: #A7A7A7 !important;
+    text-decoration: none !important;
+}
 .num-of-contact th {
     color: #fff;
     border-radius: 5px;
@@ -446,6 +450,16 @@ table.table.num-of-contact {
     padding-left: 2rem;
     bottom: 82px;
 
+
 }
+
+
+.christ {
+    cursor: pointer;
+}
+/* .page-sel{
+    background-image: url("../Assets/images/pagearrow.png")!important;
+    width: 20px;
+} */
 
 /* **************************dashboard right end************************/

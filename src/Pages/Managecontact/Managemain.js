@@ -17,8 +17,6 @@ function Managemain() {
     const [filterjob, setfilterjob] = useState('');
     const [filternum, setfilternum] = useState('');
     const [filteremail, setfilteremail] = useState('');
-    // var arrayone = [];
-    // var arraytwo = [];
 
     useEffect(() => {
         localStorage.setItem("dashboard page", 2);
@@ -32,53 +30,30 @@ function Managemain() {
         result();
 
     }, []);
-
-    // userdata.map((eas, key) => {
-    //     eas.map((value, item) => {
-    //         if (item == 0) {
-    //             arrayone.push(value)
-               
-
-    //         }
-    //         else if (item == 1) {
-    //             arraytwo.push(value.values);
-    //         }
-    //     })
-    // })
-
-  
-
+    /* ----------------  navigate to viewcontact page  ---------------*/
     const viewcontact = (val) => {
         localStorage.setItem("view contact", val);
         navigate('/Contactinformation');
     }
+
+    /* ---------------- navigate to edit contact page  ---------------*/
     const editcontact = (val) => {
         localStorage.setItem("edit contact", val);
         navigate('/Editcontact');
     }
-    // const [deletecontactstate, setdeletecontactstate] = useState(false)
+
+    /* ----------------  delete contact   ---------------*/
     const deletecontact = (val) => {
         if (window.confirm("Confirm to delete contact")) {
-            
             axios.delete(`http://localhost:8001/managecontact/${val}`);
             window.location.reload(false)
-          } 
-        //   else
-        //   {
-        //     setdeletecontactstate(false)
-        //   }
-        //   if(deletecontactstate)
-        //   {
-            
-        //   }
-         
-      
+        }
     }
+
     const clickdashboard = () => {
         navigate('/');
     }
-
-    //    pagination
+    /* ----------------   pagination ---------------*/
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const indexofLastValue = currentPage * itemsPerPage;
@@ -119,10 +94,7 @@ function Managemain() {
     if (pages.length > maxlimitNumber) {
         incrementDots = <li onClick={handleNext}>...</li>
     }
-
-
-
-    // download
+    /* ----------------  download  ---------------*/
     var title = "Manage Contact";
     const data = [{
         Name: "",
@@ -139,15 +111,11 @@ function Managemain() {
     const fileName = 'download'
     const exportType = 'xls'
 
-
-
-
     const ExportToExcel = () => {
         exportFromJSON({ data, fileName, exportType })
     }
 
-    // upload
-
+    /* ---------------- upload   ---------------*/
     const readUploadFile = (e) => {
         e.preventDefault();
         if (e.target.files) {
@@ -159,13 +127,11 @@ function Managemain() {
                 const worksheet = workbook.Sheets[sheetName];
                 const json = xlsx.utils.sheet_to_json(worksheet);
                 json.forEach(data => {
-
                     axios.post(`http://localhost:8001/managecontact`, data);
                 })
             };
             reader.readAsArrayBuffer(e.target.files[0]);
         }
-
     }
 
 
@@ -210,10 +176,10 @@ function Managemain() {
                                 </thead>
                                 <tbody>
                                     {shownItems.filter(val => {
-                                        if ((filtername == '') && (filterjob == '') && (filteremail == '')) {
+                                        if ((filtername == '') && (filterjob == '') && (filteremail == '') && (filternum == '')) {
                                             return val;
                                         }
-                                        else if ((val.Name).toLowerCase().includes(filtername.toLowerCase()) && (val.JobTitle).toLowerCase().includes(filterjob.toLowerCase()) && (val.Emailid).toLowerCase().includes(filteremail.toLowerCase())) {
+                                        else if ((val.Name).toLowerCase().includes(filtername.toLowerCase()) && (val.JobTitle).toLowerCase().includes(filterjob.toLowerCase()) && (val.Emailid).toLowerCase().includes(filteremail.toLowerCase()) && (val.MobileNumber).includes(filternum)) {
                                             return (val);
                                         }
                                     }).map((value, key) => {
@@ -226,22 +192,16 @@ function Managemain() {
                                                 <td>{value.Emailid}</td>
                                                 <td>
                                                     <div className='icon-div d-flex'>
-                                                        <div> <img src={greeneye} alt="logo here" onClick={() => viewcontact(key + 1)} /></div>
+                                                        <div> <img src={greeneye} alt="logo here" onClick={() => viewcontact(value.id)} /></div>
                                                         <div><img src={pen} alt="logo here" onClick={() => editcontact(value.id)} /></div>
                                                         <div><img src={trash} alt="logo here" onClick={() => deletecontact(value.id)} /></div>
                                                     </div>
                                                 </td>
                                             </tr>
                                         )
-
-                                    }
-
-                                    )
-                                    }
+                                    })}
                                 </tbody>
                             </table>
-
-
                         </div>
                     </div>
                 </div>
@@ -265,19 +225,14 @@ function Managemain() {
                                         <>
                                             <li key={index}  ><button id={e} onClick={() => { handlePage(index) }} className={currentPage == e ? "btn num-btn active-btn" : "btn num-btn"} >{e}</button></li>
                                         </>
-
                                     )
                                 }
-
-                            })
-                        }
+                            })}
                         {incrementDots}
                         <li><button onClick={handleNext} disabled={currentPage == pages.length ? true : false} className="btn prevbtn nextbtn">Next</button></li>
                     </ul>
                 </div>
-
             </>
-
         </Dashboard>
     )
 }
