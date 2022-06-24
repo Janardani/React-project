@@ -282,7 +282,7 @@ const Addcontact = () => {
                                             <label>{ele}</label>
                                             <div className='custom-input flex-row'>
                                                 <input autoComplete='off' type="text" name={ele} value={newlabel[k].value} placeholder={`Enter ${ele}`} onChange={(event) => labelchange(event, k)} />
-                                                <span className='delete-label' onClick={() => deletelabel(k)}><img src={close} />
+                                                <span className='delete-label' onClick={() => deletelabel(k)}><img src={close} />     
                                                 </span>
                                             </div>
                                         </div>
