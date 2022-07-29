@@ -1,6 +1,388 @@
 :root {
-    --background: #3ab7892b;
+    --background: #3a44b72b;
+    ---purple: #800080;
+    --white: #fff;
+    --border: #80008040;
+    --background-one: #8f0af31a;
+    --box-shadow: 7px 10px 12px #bdbbc3;
+    --green: green;
+    --red: #d10505;
+    --side-background: #f1e6ff;
+
 }
-body{
-    background: var(--background) !important;
+
+body {
+    color: var(---purple) !important;
+    font-family: Uchen !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(---purple) !important;
+}
+
+.btn {
+    color: var(---purple) !important;
+}
+
+.main-compo {
+    height: 100vh;
+}
+
+.sun-main {
+    height: calc(100vh - 87px);
+    display: block;
+    float: left;
+    width: 100%;
+    margin-top: 87px;
+    background: var(--background);
+}
+
+
+/* navbar */
+.navbar-div {
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    position: fixed;
+    float: left;
+    width: 100%;
+    height: 87px;
+    background: var(--background);
+    z-index: 999;
+}
+
+.nav-div-two {
+    display: flex;
+}
+
+.messenger a {
+    font-size: 31px;
+    font-weight: 600;
+
+}
+
+.pro a {
+    font-size: 22px;
+    padding-right: 20px;
+    font-weight: 600;
+}
+
+.pur-btn {
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    color: var(--white) !important;
+    background: var(---purple) !important;
+    border-radius: 10px !important;
+    padding-inline: 25px !important;
+}
+
+
+/* login */
+.login {
+    width: 38%;
+    margin: auto;
+    background: var(--background-one);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.login label {
+    font-size: 17px;
+    font-weight: 600;
+    padding-bottom: 3px;
+}
+
+.login input {
+    color: var(--purple);
+    margin-bottom: 17px;
+}
+
+.login-btn {
+    width: 50% !important;
+    margin: auto !important;
+    justify-content: center !important;
+    display: flex !important;
+    font-size: 18px !important;
+    background: var(---purple) !important;
+    color: var(--white) !important;
+    margin-top: 45px !important;
+}
+
+.login-main {
+    display: flex;
+    height: calc(100vh - 87px);
+
+}
+
+/* home page */
+.main-chat {
+    width: 100%;
+    display: flex;
+}
+
+.leftside-chat {
+    width: 22%;
+    position: fixed;
+    height: calc(100vh - 87px);
+    border-right: 1px solid var(--border);
+}
+
+.rightside-chat {
+    width: 78%;
+    height: calc(100vh - 87px);
+    margin-left: 22%;
+    overflow-y: scroll;
+    background-color: var(--side-background);
+}
+
+/* left side */
+.side-bar-main {
+    display: flex;
+    align-items: center;
+    padding-block: 30px;
+    padding-inline: 20px;
+    cursor: pointer;
+    padding-bottom: 0;
+}
+
+.profile-img {
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.side-name {
+    font-size: 21px;
+    margin-right: 10px;
+}
+
+.side-sts {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.side-yes {
+    background-color: var(--green);
+}
+
+.side-no {
+    background-color: var(--red);
+}
+
+
+/* right side chat */
+.select-user {
+    text-align: center;
+    font-size: 26px;
+    opacity: 0.5;
+    margin-top: 50px;
+}
+
+.message {
+    padding: 20px;
+    background: var(---purple);
+    color: var(--white);
+    margin-bottom: 10px;
+    border-radius: 16px;
+    width: 40%;
+    box-shadow: var(--box-shadow);
+    margin-inline: 20px;
+}
+
+.user-two {
+    margin-right: 20px;
+}
+
+.user-one {
+    margin-left: auto;
+}
+
+.msg-text {
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.msg-time {
+    text-align: right;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.selected-side-bar-main {
+    background: var(--background);
+    box-shadow: 0px 4px 9px #aaaaaa;
+}
+
+/* send block */
+.message-send {
+    width: 77%;
+    background: #dedff3;
+}
+
+.upload-svg {
+    font-size: 28px;
+}
+
+.send-text-box {
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(---purple) !important;
+    font-size: 17px !important;
+}
+
+.send-text-box:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.message-send-wrapper {
+    justify-content: space-between;
+    align-items: baseline;
+    background: var(--background);
+    margin: auto;
+    margin-block: 12px;
+    width: 60%;
+    border-radius: 14px;
+    padding-block: 5px;
+    padding-inline: 20px;
+}
+
+.right-side-chat-wrapper {
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.profile-sec-wrapper {
+    display: flex;
+    height: calc(100vh - 87px);
+    justify-content: center;
+}
+
+.profile-section {
+    width: 35%;
+    background: var(--background-one);
+    margin-block: 55px;
+    padding: 20px;
+    display: flex;
+    border-radius: 20px;
+    height: 300px;
+    min-height: 300px;
+    box-shadow: var(--box-shadow);
+}
+
+.profile-sec-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-sec-img {
+    width: 200px;
+    height: 200px;
+}
+
+.upload-wrapper {
+    display: flex;
+    margin-top: 17px;
+    justify-content: center;
+}
+
+.upload-img {
+    margin-right: 10px;
+
+}
+
+.upload-img label {
+    cursor: pointer;
+}
+
+.pro-up {
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.profile-left {
+    width: 45%;
+}
+
+.profile-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.user-name {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.loader {
+    background: var(--background);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+.unread-msg {
+    padding: 10px 20px 20px;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.unread-msg span {
+    font-size: 17px;
+    color: #0000fb;
+}
+
+.unread-msg span:first-child {
+    font-weight: 600;
+}
+
+.messenger a {
+    text-transform: capitalize;
+}
+
+.upload-svg button.btn:focus {
+    box-shadow: none;
+}
+
+.bio-card {
+    background: var(--side-background) !important;
+    color: var(--purple) !important;
+    font-size: 15px;
+    border-radius: 6px !important;
+}
+
+.bio-card:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.change-bio {
+    margin-top: 39px !important;
+    width: 50% !important;
+    margin-inline: auto !important;
+    background: var(---purple) !important;
+    color: var(--white) !important;
 }
