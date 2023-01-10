@@ -1,0 +1,88 @@
+{
+  "html": [
+    {
+      "id": 1,
+      "question": "Question one",
+      "optionA": "one",
+      "optionB": "two",
+      "optionC": "three",
+      "optionD": "four",
+      "answer": "one"
+    },
+    {
+      "id": 2,
+      "question": "Question two",
+      "optionA": "one",
+      "optionB": "two",
+      "optionC": "three",
+      "optionD": "four",
+      "answer": "two"
+    },
+    {
+      "id": 3,
+      "question": "Question three",
+      "optionA": "one",
+      "optionB": "two",
+      "optionC": "three",
+      "optionD": "four",
+      "answer": "one"
+    },
+    {
+      "id": 4,
+      "question": "Question four",
+      "optionA": "one",
+      "optionB": "two",
+      "optionC": "three",
+      "optionD": "four",
+      "answer": "one"
+    },
+    {
+      "id": 5,
+      "question": "Question five",
+      "optionA": "one",
+      "optionB": "two",
+      "optionC": "three",
+      "optionD": "four",
+      "answer": "one"
+    }
+  ],
+  "user": [
+    {
+      "name": "janardani",
+      "email": "janardani@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "janardani",
+      "email": "janardani@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "janardani",
+      "email": "janardani@gmail.com",
+      "id": 3
+    }
+  ],
+  "useranswergiven": [
+    {
+      "useranswer": "",
+      "id": 1
+    },
+    {
+      "useranswer": "",
+      "id": 2
+    },
+    {
+      "useranswer": "",
+      "id": 3
+    },
+    {
+      "useranswer": "",
+      "id": 4
+    },
+    {
+      "useranswer": "",
+      "id": 5
+    }
+  ]
+}
